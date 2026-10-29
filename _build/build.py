@@ -96,7 +96,10 @@ def head(meta, slug):
 <meta name="twitter:card" content="summary_large_image">
 {FONTS}
 <link rel="stylesheet" href="site.css">
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 {meta.get('head', '')}
 </head>
 """
