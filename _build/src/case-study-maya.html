@@ -1,0 +1,236 @@
+<!--
+title: Maya, L5 Trip Concierge
+description: Academic project: an AI concierge for a fully self-driving car that plans the stops, phones the shops, replans on the way, and sends the empty car to run errands.
+image: imgs/maya1.jpg
+-->
+<header class="case-hero">
+  <h1>Maya, L5 Trip Concierge</h1>
+  <p class="lead">An AI concierge for a fully self-driving car: she plans the stops, phones the shops and replans on the way, and sends the empty car to run errands on its own.</p>
+  <hr class="lumen">
+  <dl class="facts">
+    <div><dt>Type</dt><dd>Academic project, self-initiated</dd></div>
+    <div><dt>When</dt><dd>2026</dd></div>
+    <div><dt>My role</dt><dd>Everything: research framing, conversation and UX design, UI, prototype</dd></div>
+    <div><dt>Team</dt><dd>Solo</dd></div>
+    <div><dt>Platform</dt><dd>Car central display, windscreen light band, phone</dd></div>
+  </dl>
+  <figure class="hero-media">
+    <div class="cabin-hero">
+      <img src="imgs/maya-cabin.png" alt="Line drawing of a car cabin: windscreen with the light band at its base, and the central display on the dashboard">
+      <div class="pv" aria-hidden="true">
+        <div class="pv-car"><span><span class="pv-speed">14</span><small>km/h</small></span><span>21°</span><span><span class="pv-range">312</span> km</span></div>
+        <div class="pv-maya">
+          <span class="pv-pres speaking"></span>
+          <span class="pv-call" hidden><svg viewBox="0 0 24 24" width="100%" height="100%"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg></span>
+          <span class="pv-msg">Home <span class="t">17:48</span></span>
+          <span class="pv-spare none">—</span>
+          <span class="pv-beads"></span>
+        </div>
+        <i class="pv-line"></i>
+      </div>
+      <video class="cabin-video" muted autoplay loop playsinline aria-label="Maya on the central display, through the family dinner run">
+        <source src="imgs/maya-hero.mp4" type="video/mp4">
+      </video>
+    </div>
+    <figcaption><b>The evening in 25 seconds.</b> Maya's plan on the central display, and the light band at the base of the windscreen following it: next stop, spare time and what she is doing.</figcaption>
+  </figure>
+<script>
+                    // Panoramic Vision (Maya's half and the car half), matched to each Central Display screen in the hero video.
+                    // 12 screens; a new one fades in every 2 s. Some screens have two band moments (an event, then the resting state).
+                    (function () {
+                        // One band state per screen: [speed km/h, range km, presence, message, spare, beads [done, current] or null, green line, event]
+                        var F = [
+                            /* S02 17:15 signed in, Maya greets   */ [14, 312, 'speaking', 'Home <span class="t">17:48</span>', '', null, false, false],
+                            /* S04 17:16 briefing, Michael talks   */ [32, 312, 'hearing', 'Home <span class="t">17:48</span>', '', null, false, false],
+                            /* S07 17:17 building the plan         */ [38, 311, 'thinking', 'Home <span class="t">17:48</span>', '', null, false, false],
+                            /* S08 17:19 call to pharmacy 2        */ [44, 310, 'call', 'Calling Pharmacy 2', '+5 min', [1, 1], true, false],
+                            /* S09 17:20 plan changed by the world */ [41, 310, 'listening', 'Pharmacy changed', '+5 min', null, true, true],
+                            /* S11 17:23 florist order done        */ [49, 308, 'listening', 'Flowers confirmed', '+5 min', null, true, true],
+                            /* S12 17:24 plan running              */ [52, 308, 'listening', 'School <span class="t">17:35</span>', '+5 min', [1, 1], true, false],
+                            /* S14 17:40 son on board              */ [36, 301, 'listening', 'Kindergarten <span class="t">17:55</span>', '+5 min', [2, 1], true, false],
+                            /* S17 18:04 wife's call, ambient      */ [46, 292, 'listening', 'Pickup moved: hair salon', '+5 min', null, true, true],
+                            /* S19 18:34 courier errand booked     */ [33, 284, 'listening', 'Errand booked: dry cleaner', '', null, true, true],
+                            /* S20 18:55 arrived                   */ [0, 279, 'speaking', 'Arrived <span class="t">18:55</span>', '+5 min', [6, 0], true, false],
+                            /* C1 18:56 courier hand-off           */ [0, 279, 'listening', 'Courier <span class="t">waits for you</span>', '', null, false, false]
+                        ];
+                        var pv = document.querySelector('.cabin-hero .pv'), v = document.querySelector('.cabin-hero .cabin-video');
+                        if (!pv || !v) return;
+                        var q = function (sel) { return pv.querySelector(sel); }, cur = -1;
+                        function render(s) {
+                            // fade out with the outgoing screen, swap at the middle of the crossfade, fade in with the new one
+                            pv.classList.add('swap');
+                            setTimeout(function () {
+                                q('.pv-speed').textContent = s[0];
+                                q('.pv-range').textContent = s[1];
+                                q('.pv-pres').className = 'pv-pres' + (s[2] === 'listening' || s[2] === 'call' ? '' : ' ' + s[2]);
+                                q('.pv-call').hidden = s[2] !== 'call';
+                                q('.pv-msg').innerHTML = s[3];
+                                var sp = q('.pv-spare');
+                                sp.textContent = s[4] || (s[7] ? '' : '—');
+                                sp.className = 'pv-spare' + (s[4] ? '' : ' none');
+                                var b = q('.pv-beads'); b.innerHTML = '';
+                                if (s[5]) for (var k = 0; k < 6; k++) { var d = document.createElement('i'); d.className = k < s[5][0] ? 'done' : (k < s[5][0] + s[5][1] ? 'now' : ''); b.appendChild(d); }
+                                pv.classList.toggle('green', s[6]);
+                                pv.classList.toggle('event', s[7]);
+                                pv.classList.remove('swap');
+                                if (s[7]) { pv.classList.add('flash'); setTimeout(function () { pv.classList.remove('flash'); }, 900); }
+                            }, 200);
+                        }
+                        function tick() {
+                            // screen k crossfades in from 0.4 + 2k to 0.8 + 2k s; the band starts its own fade at the same moment
+                            var i = Math.min(F.length - 1, Math.max(0, Math.floor((v.currentTime - 0.4) / 2.0)));
+                            if (i !== cur) { cur = i; render(F[i]); }
+                            requestAnimationFrame(tick);
+                        }
+                        requestAnimationFrame(tick);
+                    })();
+                </script>
+</header>
+
+<section id="context" data-nav="Context and role">
+  <h2>Context and role</h2>
+  <p>Maya is an academic project I set myself in 2026: what could an in-car assistant be once nobody has to drive? Not a voice menu for the media player, but a concierge that takes over the errands around a trip.</p>
+  <p>The concept targets a large central touchscreen and a passive light band at the base of the windscreen, similar to the panoramic displays in the newest car interiors. It is a concept only, not affiliated with any car maker.</p>
+  <div class="contrib">
+    <div class="donut"><script type="application/json">[
+      {"percentage": 50, "legend": "Design", "color": "#2348d6"},
+      {"percentage": 25, "legend": "Research", "color": "#2a9d8f"},
+      {"percentage": 25, "legend": "Code", "color": "#8c6ad8"}]</script></div>
+    <ul>
+      <li>I framed the problem, a hypothesis and 16 assumptions ranked by risk, each tied to a way to test it.</li>
+      <li>I wrote the hero scenario and the conversation design: what Maya says, and what she leaves to the screen.</li>
+      <li>I mapped the journey, the task flow, a voice and touch parity matrix and 17 edge cases.</li>
+      <li>I designed greyscale wireframes, the visual direction, 25 high-fidelity screens and a clickable prototype.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="problem" data-nav="Problem">
+  <h2>The problem: the car drives, you still do the errands</h2>
+  <p>A self-driving car frees your hands, not your agenda. Navigation handles routes, not commitments. A passenger still has to work out the order of the stops, phone the pharmacy, check the shop is open, and replan by hand when someone calls with a change. The time the car gives back isn't really free.</p>
+  <p>Maya is for time-poor people whose evenings are a chain of pickups and errands; in the story, Michael, a father of two.</p>
+  <ul>
+    <li><b>Commitments, not destinations.</b> The hard part of an evening of errands is knowing the prescription is ready, the flowers will arrive and everyone is collected on time.</li>
+    <li><b>Plans change on the way.</b> A shop is out of stock, a family member calls, traffic builds. Today each change means another round of calls and map searches.</li>
+  </ul>
+  <p>At Level 5 the car can do more than drive. An assistant with delegated trust, like an executive assistant, could hold the whole plan, talk to shops and keep the passenger on time. And a car that sits empty during dinner could run an errand by itself.</p>
+</section>
+
+<section id="insights" data-nav="Assumptions and insights">
+  <h2>Assumptions first, then insights</h2>
+  <p>As a solo academic project there was no budget for user research, so I made the assumptions explicit instead of hiding them. I wrote a hypothesis, ranked 16 assumptions by risk and confidence, and tied each to a test I would run with more time.</p>
+  <blockquote><p>We believe that time-poor people will hand over trip logistics entirely to an AI that asks only what it cannot know, acts on its own, follows the conversation, and makes every action visible and reversible. We will know we are right when users arrive on time, rarely undo what Maya did, and trust her with more over time.</p></blockquote>
+  <ul class="findings">
+    <li><p class="saw"><span class="k">Insight</span>People think in needs, not addresses.</p>
+        <p class="did"><span class="k">So I designed</span>A briefing like "family dinner tonight, get the kids and my wife, and that prescription". Maya asks only what she can't know: in the story, two questions.</p></li>
+    <li><p class="saw"><span class="k">Insight</span>Talking costs attention in a family cabin.</p>
+        <p class="did"><span class="k">So I designed</span>Maya speaks only when she needs Michael. The screen is the confirmation, so she never reads the plan back.</p></li>
+    <li><p class="saw"><span class="k">Insight</span>Not every change deserves the same interruption.</p>
+        <p class="did"><span class="k">So I designed</span>Changes caused by the world (a pharmacy out of stock) happen silently and visibly. Changes heard in conversation get a chime, the phrase Maya heard, and Undo.</p></li>
+    <li><p class="saw"><span class="k">Insight</span>Trust comes from visibility, not approval steps.</p>
+        <p class="did"><span class="k">So I designed</span>Do first, show clearly, undo easily. Limits are set once (calls, payments up to an amount, listening), every action lands in a "Done for you" ledger, and the prescription shows only its reference number on the shared screen.</p></li>
+    <li><p class="saw"><span class="k">Insight</span>An empty self-driving car is idle capacity.</p>
+        <p class="did"><span class="k">So I designed</span>Courier mode: Maya books an errand for the empty car only once the shop has agreed the time, the person and the handover.</p></li>
+  </ul>
+</section>
+
+<section id="decisions" data-nav="Decisions and trade-offs">
+  <h2>Decisions and trade-offs</h2>
+  <p>I kept the scope to one evening and one user, designed for Level 5 only, and moved everything else to an explicit "if I had a month" list: other errand types, guest mode, conflicts between passengers, wallet statements, a regulation review for empty cars, and real user research.</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Decision</th><th>What it gains</th><th>What it gives up</th></tr></thead>
+      <tbody>
+        <tr><td>Full trust: Maya acts, pays and listens</td><td>Feels like a real assistant</td><td>No approval before calls or payments under the limit</td></tr>
+        <tr><td>Overheard intent acts on high confidence, asks on medium</td><td>Plans change without being managed</td><td>Risk of acting on talk that wasn't meant for her</td></tr>
+        <tr><td>Courier errands only with an agreed handover</td><td>Errands don't fail at the door</td><td>Fewer errands qualify</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <h3>Validation, riskiest first</h3>
+  <p>Does overheard intent feel helpful, or creepy? Would people send an empty car? These are the tests I would run first, with targets, not results.</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Assumption</th><th>Test</th><th>Target</th></tr></thead>
+      <tbody>
+        <tr><td>Listening to cabin talk and calls is welcome; false positives are cheap</td><td>Scripted audio clips, real changes and decoys</td><td>Undo under 10%</td></tr>
+        <tr><td>People will send their empty car, and accept a cabin camera</td><td>Clickable courier flow, 5 participants</td><td>4 of 5 would send it</td></tr>
+        <tr><td>Shops cooperate with an AI caller and an empty car</td><td>Scripted calls to local shops</td><td>90%+ of errands done without Michael</td></tr>
+        <tr><td>Users accept "do first, show clearly, undo easily"</td><td>Wizard of Oz briefing, 5 participants</td><td>Under 10% of questions Maya could have answered herself</td></tr>
+        <tr><td>Spare time and the light band work at a glance</td><td>5-second glance test</td><td>80%+ correct; 95%+ on time</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="experience" data-nav="The experience">
+  <h2>The experience: a family dinner run</h2>
+  <p>At 17:15 the car collects Michael at work. He needs to collect his son, his daughter and his wife, and get a new prescription, before a family birthday dinner at 19:00. Over one evening there are three reroutes, each with a different cause, and one errand run by the empty car. Spare time stays at 5 minutes in every version of the plan.</p>
+  <figure>
+    <a class="shot zoom" href="imgs/maya-journey.jpg"><img src="imgs/maya-journey.jpg" alt="Journey map of the family dinner run in ten beats" loading="lazy"></a>
+    <figcaption><b>Journey map with a service blueprint underneath.</b> Ten beats from sign-in to the empty car charging. For each: Michael's goal, what Maya says (mostly nothing), what each screen shows, what Maya does backstage, the expected emotion, the risk and the design response. Select to open full size.</figcaption>
+  </figure>
+  <h3>The system</h3>
+  <p>Voice and touch are equals: every task can be done by voice alone or by touch alone, so the concept works for people who find speaking hard and for people who find touch hard. Everything Maya says is captioned, every chime has a visual twin, and colour never carries meaning on its own.</p>
+  <figure>
+    <a class="shot zoom" href="imgs/maya-flow.jpg"><img src="imgs/maya-flow.jpg" alt="Task flow in four lanes" loading="lazy"></a>
+    <figcaption><b>Task flow, in four lanes.</b> Getting going, planning, on the way and after arrival: when Maya asks, the three kinds of replan (the world, a call, Michael's own edits) and the hand-off to the empty car.</figcaption>
+  </figure>
+  <figure>
+    <a class="shot zoom" href="imgs/maya-anatomy.jpg"><img src="imgs/maya-anatomy.jpg" alt="Screen anatomy of the plan overview" loading="lazy"></a>
+    <figcaption><b>One layout everywhere.</b> The plan on the left, the live map behind, Maya's bar below, in a "Deep ocean" visual language: glass over a full-bleed map, one glow for what matters now, and green, amber or red only for spare time.</figcaption>
+  </figure>
+  <h3>Nine moments from the evening</h3>
+  <p class="note">Scene 5, the plan replacing the route home, plays in the hero above; scene 10, the courier run, follows below.</p>
+  <div class="gallery">
+    <div class="trio">
+      <figure><div class="shot"><img src="imgs/maya-S02.jpg" alt="Sign-in screen" loading="lazy"></div><figcaption><b>1 · 17:15 · Sign-in.</b> Signed in by face; the car heads home by default.</figcaption></figure>
+      <figure><div class="shot"><img src="imgs/maya-S04.jpg" alt="Briefing screen" loading="lazy"></div><figcaption><b>2 · 17:16 · Briefing.</b> Michael says what the evening needs; the plan card fills in.</figcaption></figure>
+      <figure><div class="shot"><img src="imgs/maya-S08.jpg" alt="Pharmacy search with call transcript" loading="lazy"></div><figcaption><b>3 · 17:19 · Pharmacy search.</b> Silent calls, live transcript; pharmacy 2 has it.</figcaption></figure>
+      <figure><div class="shot"><img src="imgs/maya-S11.jpg" alt="Flowers ordered" loading="lazy"></div><figcaption><b>4 · 17:22 · Flowers.</b> A birthday in the calendar becomes a call and a gift.</figcaption></figure>
+      <figure><div class="shot"><img src="imgs/maya-S14.jpg" alt="Pickups with now and next" loading="lazy"></div><figcaption><b>6 · 17:33 · Pickups.</b> Now and next, spare time, and the "Done for you" ledger.</figcaption></figure>
+      <figure><div class="shot"><img src="imgs/maya-S17.jpg" alt="Replan after the wife's call" loading="lazy"></div><figcaption><b>7 · 18:03 · The wife's call.</b> Maya hears "the hair salon", chimes once, offers Undo.</figcaption></figure>
+      <figure><div class="shot"><img src="imgs/maya-S19.jpg" alt="Errand booked with the dry cleaner" loading="lazy"></div><figcaption><b>8 · 18:32 · The errand.</b> The dry cleaner agrees a handover; only then is it booked.</figcaption></figure>
+      <figure><div class="shot"><img src="imgs/maya-S20.jpg" alt="Arrival summary" loading="lazy"></div><figcaption><b>9 · 18:55 · Arrival.</b> Five minutes early, with everything done listed.</figcaption></figure>
+      <figure><div class="shot"><img src="imgs/maya-V2.jpg" alt="Running late edge case" loading="lazy"></div><figcaption><b>Edge case · Running late.</b> Fixes offered cheapest first, such as holding the table.</figcaption></figure>
+    </div>
+  </div>
+  <h3>Courier mode, scene 10</h3>
+  <p>After the family is dropped off, a message says the suit is ready at the dry cleaner. Maya offers to collect it with the empty car, phones the shop to pay and agree the handover, and books it only then. The car checks the cabin is empty, leaves, and opens one door with a one-time code. Michael follows the run on his phone, view only, and gets a report with a photo.</p>
+  <div class="duo">
+    <figure><div class="shot"><img src="imgs/maya-C1.jpg" alt="Leaving in courier mode with a cabin check" loading="lazy"></div><figcaption><b>Leaving alone.</b> The cabin check before the car leaves.</figcaption></figure>
+    <figure><div class="shot"><img src="imgs/maya-C5.jpg" alt="New errand form with the handover door chosen on a top view of the car" loading="lazy"></div><figcaption><b>Booking by hand.</b> Choose the door or boot for the handover on a top view of the car.</figcaption></figure>
+  </div>
+  <figure>
+    <div class="duo" style="max-width:34rem">
+      <div class="shot"><img src="imgs/maya-C2-phone.jpg" alt="Phone: live courier run" loading="lazy"></div>
+      <div class="shot"><img src="imgs/maya-C3-phone.jpg" alt="Phone: errand report" loading="lazy"></div>
+    </div>
+    <figcaption><b>Without you, the phone is the window.</b> The live run, and the report with photo, receipt and times. View only, notifications only, never voice.</figcaption>
+  </figure>
+  <h3>Glance, don't read: the windscreen band</h3>
+  <figure>
+    <div class="shot"><img src="imgs/maya-panoramic.jpg" alt="Panoramic light band anatomy" loading="lazy"></div>
+    <figcaption><b>One band, always dark.</b> Car data on the left, Maya on the right: presence, next stop, spare time and progress, with a line of light in the spare-time colour.</figcaption>
+  </figure>
+</section>
+
+<section id="results" data-nav="What it delivered">
+  <h2>What it delivered</h2>
+  <p>As an academic concept, Maya has no real-world results yet. What it produced:</p>
+  <ul class="results">
+    <li><span class="n">25</span><span class="w">high-fidelity screens</span><span class="b">Across the car display and the phone.</span></li>
+    <li><span class="n">16</span><span class="w">assumptions ranked by risk</span><span class="b">Each tied to a test.</span></li>
+    <li><span class="n">17</span><span class="w">edge cases</span><span class="b">Each with its expected behaviour.</span></li>
+  </ul>
+</section>
+
+<section id="lessons" data-nav="Lessons">
+  <h2>Lessons</h2>
+  <div class="lessons">
+    <div><h3>Make assumptions the backbone</h3>
+      <p>Without research, ranking assumptions by risk and tying each to a test kept the concept honest and showed what to validate first: listening in the cabin, and shops' cooperation.</p></div>
+    <div><h3>Silence is a design material</h3>
+      <p>Most of what Maya does is never said. Deciding what not to speak, and what the screen must confirm instead, shaped every scene.</p></div>
+  </div>
+</section>

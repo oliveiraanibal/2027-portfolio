@@ -1,0 +1,144 @@
+<!--
+title: Feedzai RiskOps Studio
+description: Senior product designer for onboarding and activation of TFB Growth, Feedzai's new self-service fraud-prevention tier: a service blueprint and three set-up features.
+image: imgs/fz1.png
+-->
+<header class="case-hero">
+  <h1>Feedzai RiskOps Studio</h1>
+  <p class="lead">Taking a bank from signed contract to its first working setup on a new, self-service fraud-prevention tier.</p>
+  <hr class="lumen">
+  <dl class="facts">
+    <div><dt>Company</dt><dd>Feedzai</dd></div>
+    <div><dt>When</dt><dd>February to July 2026</dd></div>
+    <div><dt>My role</dt><dd>Senior product designer, onboarding and activation (contract)</dd></div>
+    <div><dt>Worked with</dt><dd>User researchers, product managers, engineering</dd></div>
+    <div><dt>Product</dt><dd>B2B SaaS for banks: TFB Growth in RiskOps Studio</dd></div>
+  </dl>
+  <figure class="hero-media">
+    <div class="frame">
+      <video controls muted autoplay loop playsinline preload="metadata" poster="imgs/fz1.png">
+        <source src="imgs/fz-hero.mp4" type="video/mp4">
+      </video>
+    </div>
+    <figcaption><b>From pending to active.</b> The three set-up features a bank configures first move from red to green as each one is done.</figcaption>
+  </figure>
+</header>
+
+<section id="context" data-nav="Context and role">
+  <h2>Context and role</h2>
+  <p>Feedzai builds fraud and anti-money-laundering software for banks. RiskOps Studio, rolling out since June 2025, is its unified platform, gradually replacing the separate Fraud, AML and Identity applications. In 2026 Feedzai was preparing TFB Growth, a lighter and more self-service entry tier of Transaction Fraud for Banking, due by the end of Q2.</p>
+  <p>I joined as a contract senior product designer, the main designer for onboarding and activation.</p>
+  <div class="contrib">
+    <div class="donut"><script type="application/json">[
+      {"percentage": 50, "legend": "Design", "color": "#2348d6"},
+      {"percentage": 25, "legend": "Research", "color": "#2a9d8f"},
+      {"percentage": 25, "legend": "Code", "color": "#8c6ad8"}]</script></div>
+    <ul>
+      <li><b>Service blueprint:</b> I helped researchers and product managers build the onboarding and activation blueprint, from the internal ticket that starts activation to the bank's first value.</li>
+      <li><b>Three set-up features, which I led:</b> single sign-on (SSO), IP allowlist and API client credentials, the first things a bank configures.</li>
+      <li><b>Delivery:</b> I worked with engineering in Kiro, a spec-driven AI tool, to turn designs into specs and design-system components.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="problem" data-nav="Problem">
+  <h2>The problem: a journey nobody could see whole</h2>
+  <p>The Growth onboarding journey hadn't been decided yet. What was known sat in seven documents from different teams, each covering part of the journey, and they didn't always agree. Ten Feedzai teams and up to seven roles at the bank each owned a slice.</p>
+  <p>The first step was also the most manual. Customer success, project managers and the service team collected identity-provider details, IP lists and API key requests by email and on calls. The plan allowed about 8 hours per customer for this back and forth.</p>
+  <figure>
+    <div class="shot"><img src="imgs/fz-sources.png" alt="Seven source documents and seventeen roles feeding one service blueprint" loading="lazy"></div>
+    <figcaption><b>The starting point.</b> Seven sources and seventeen roles, each holding part of the onboarding journey.</figcaption>
+  </figure>
+</section>
+
+<section id="insights" data-nav="Research and insights">
+  <h2>What research changed</h2>
+  <p>With the researchers and product managers, we treated the existing material as research data. I used AI to pull steps, actors, systems and open questions out of each source. We then checked them against the original documents and with the teams that owned them, and logged conflicts instead of picking a side.</p>
+  <p>The result was a service blueprint of 10 stages in 4 phases, from the contract to support and expansion: what the bank sees above the line, and the teams, systems and support behind it.</p>
+  <figure>
+    <a class="shot zoom" href="imgs/fz-blueprint.jpg"><img src="imgs/fz-blueprint.jpg" alt="TFB Growth onboarding and activation service blueprint" loading="lazy"></a>
+    <figcaption><b>Onboarding and activation service blueprint.</b> Four phases (internal activation, the bank's first touch, configuration and go-live), with scope, related topics and a shared glossary so every team uses the same words. Select to open full size.</figcaption>
+  </figure>
+  <p>The blueprint showed where the set-up features had to do work people were doing by hand:</p>
+  <ul class="findings">
+    <li><p class="saw"><span class="k">We saw</span>The first login was a hand-off, not a product moment.</p>
+        <p class="did"><span class="k">So I designed</span>Getting Started, a landing page for first-time users with the three set-up steps and the status of each.</p></li>
+    <li><p class="saw"><span class="k">We saw</span>Each environment needs its own setup, and it is easy to configure the wrong one.</p>
+        <p class="did"><span class="k">So I designed</span>Every set-up page names its environment before anything else.</p></li>
+    <li><p class="saw"><span class="k">We saw</span>Set-up errors were found late, by support.</p>
+        <p class="did"><span class="k">So I designed</span>SSO that checks the SAML file on upload, shows each required claim as found or missing, and generates the missing ones.</p></li>
+    <li><p class="saw"><span class="k">We saw</span>Secrets and access changes can lock people or systems out.</p>
+        <p class="did"><span class="k">So I designed</span>A client secret shown once, with the consequence stated, and type-to-confirm for disabling SSO or revoking credentials.</p></li>
+  </ul>
+</section>
+
+<section id="decisions" data-nav="Design decisions">
+  <h2>Design decisions</h2>
+  <p>Each set-up feature is a short path from pending to active, built from RiskOps Studio design-system components.</p>
+
+  <article class="decision">
+    <h3>Give the first login a job</h3>
+    <p>Getting Started lists SSO, IP allowlist and API client credentials, each with its status and pending requests, under the name of the environment. The bank's admin knows what to do first and what is still waiting on someone else.</p>
+    <figure><div class="shot"><img src="imgs/fz-getting-started.png" alt="Getting Started landing page with the three set-up features and their statuses" loading="lazy"></div>
+      <figcaption><b>Getting Started.</b> Three steps, each with its status, and the environment named at the top.</figcaption></figure>
+  </article>
+
+  <article class="decision">
+    <h3>Fix errors at upload, not in a support ticket</h3>
+    <p>SSO shows the values the identity provider needs, ready to copy, then takes the SAML file. The file is checked as it is uploaded: each required claim shows as found or missing, and missing ones are generated for the admin to copy back, instead of failing later.</p>
+    <div class="duo">
+      <figure><div class="shot"><img src="imgs/fz-sso-config.png" alt="SSO pending: copy the identity provider configuration and upload the SAML file" loading="lazy"></div>
+        <figcaption><b>Pending.</b> Copy the values, upload the file.</figcaption></figure>
+      <figure><div class="shot"><img src="imgs/fz-sso-claims.png" alt="SSO active: SAML validated and claims generated" loading="lazy"></div>
+        <figcaption><b>Active.</b> The file validated; missing claims generated.</figcaption></figure>
+    </div>
+  </article>
+
+  <article class="decision">
+    <h3>Guardrails where mistakes are expensive</h3>
+    <p>API credentials are listed per use case, from pending activation to revoked. A client secret is shown once, with what happens if it is lost stated next to it. Destructive actions ask the admin to type the action to confirm.</p>
+    <p class="tradeoff"><b>Trade-off:</b> typing to confirm is slower. It is used only where a mistake locks people or systems out.</p>
+    <div class="duo">
+      <figure><div class="shot"><img src="imgs/fz-api-list.png" alt="API client credentials list with statuses" loading="lazy"></div>
+        <figcaption><b>Credentials.</b> One per use case, each with its status.</figcaption></figure>
+      <figure><div class="shot"><img src="imgs/fz-api-secret.png" alt="One-time client secret copy with a warning" loading="lazy"></div>
+        <figcaption><b>One-time secret.</b> Copy it now; the consequence is stated.</figcaption></figure>
+    </div>
+  </article>
+
+  <article class="decision">
+    <h3>One status vocabulary</h3>
+    <p>The three features share the same status labels, each explained in one line on hover, and the same type-to-confirm pattern. The IP allowlist follows the same patterns, so learning one feature teaches the other two.</p>
+    <figure><div class="shot"><img src="imgs/fz-statuses.png" alt="Status labels shared across the three set-up features" loading="lazy"></div>
+      <figcaption><b>Shared statuses.</b> The same labels and meanings in all three features.</figcaption></figure>
+  </article>
+</section>
+
+<section id="scope" data-nav="Scope">
+  <h2>Scope: the end of Q2, not an ideal future</h2>
+  <p>The blueprint drew a clear line between what Growth includes now and what comes later, so teams could commit to it.</p>
+  <ul>
+    <li><b>Human help now, a wizard later.</b> For Q2, customer success and the service team still guide the bank's admin through setup, so I designed the set-up features for both to use the same screens. A fully guided wizard was logged for Q3.</li>
+    <li><b>Open questions stay visible.</b> Authentication, Case Manager activation and partner involvement were still unresolved. The blueprint marks them for a decision instead of hiding them.</li>
+    <li><b>Use the name the bank bought.</b> Banks buy "TFB" and may not recognise "Studio", so screen copy and documentation name the product first.</li>
+  </ul>
+</section>
+
+<section id="results" data-nav="Results">
+  <h2>What it delivered</h2>
+  <ul class="results">
+    <li><span class="n">7 → 1</span><span class="w">sources merged into one working blueprint</span><span class="b">Documents from different teams, reconciled.</span></li>
+    <li><span class="n">3</span><span class="w">self-service set-up features designed</span><span class="b">SSO, IP allowlist and API client credentials.</span></li>
+    <li><span class="n">~8 h</span><span class="w">of manual set-up per customer</span><span class="b">The back and forth that self-service aims to remove.</span></li>
+  </ul>
+</section>
+
+<section id="lessons" data-nav="Lessons">
+  <h2>Lessons</h2>
+  <div class="lessons">
+    <div><h3>Existing material is research data</h3>
+      <p>Seven documents from different teams already held most of the answers. The work was reconciling them and making the conflicts visible, and AI made that fast enough to do properly.</p></div>
+    <div><h3>Design the first ten minutes</h3>
+      <p>For an admin product, the first login and the first error message build or lose trust long before anyone sees a dashboard.</p></div>
+  </div>
+</section>

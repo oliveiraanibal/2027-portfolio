@@ -1,0 +1,136 @@
+<!--
+title: Tridonic Design System
+description: Product manager and UX designer of the Tridonic Design System, which replaced 200+ one-off components across 15+ IoT and lighting apps with one versioned library.
+image: imgs/tds-complex.jpg
+-->
+<header class="case-hero">
+  <h1>Tridonic Design System</h1>
+  <p class="lead">Replacing more than 200 one-off components across 15 apps with one shared, versioned design system.</p>
+  <hr class="lumen">
+  <dl class="facts">
+    <div><dt>Company</dt><dd>Tridonic, Zumtobel Group</dd></div>
+    <div><dt>When</dt><dd>From 2021</dd></div>
+    <div><dt>My role</dt><dd>Product manager and UX designer</dd></div>
+    <div><dt>Users</dt><dd>Designers and developers of Tridonic's apps</dd></div>
+    <div><dt>Product</dt><dd>Figma library, design tokens, React components, documentation</dd></div>
+  </dl>
+  <figure class="hero-media">
+    <div class="frame">
+      <video controls muted autoplay loop playsinline preload="metadata" poster="imgs/tds1.png">
+        <source src="imgs/tds3.mp4" type="video/mp4">
+      </video>
+    </div>
+    <figcaption><b>The documentation site of the coded library.</b> Release notes, getting started, simple and complex components, and the energy chart. About one minute, no sound.</figcaption>
+  </figure>
+</header>
+
+<section id="context" data-nav="Context and role">
+  <h2>Context and role</h2>
+  <p>Tridonic was adding smart lighting and IoT apps quickly, and each team built its own interface. Customers met a different experience in every product, and teams rebuilt the same parts again and again. I ran the Tridonic Design System (TDS) as an internal product: its vision and roadmap, the case for it with business and engineering, the research behind it, the component library, and adoption across teams.</p>
+  <div class="contrib">
+    <div class="donut"><script type="application/json">[
+      {"percentage": 34, "legend": "Product management", "color": "#f5b841"},
+      {"percentage": 33, "legend": "Research", "color": "#2a9d8f"},
+      {"percentage": 33, "legend": "Design", "color": "#2348d6"}]</script></div>
+    <ul>
+      <li>I defined the vision, strategy and roadmap for TDS.</li>
+      <li>I secured buy-in and alignment from business and engineering.</li>
+      <li>I researched where the experience was inconsistent across products.</li>
+      <li>I researched and designed the library of reusable components.</li>
+      <li>I drove adoption and contribution across internal teams.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="problem" data-nav="Problem">
+  <h2>The problem: the same parts, built many times</h2>
+  <p>An audit of Tridonic's IoT and lighting apps found:</p>
+  <ul>
+    <li>more than 200 unique UI components across more than 15 applications, many of them variations of the same thing;</li>
+    <li>designers spending about 20% of their time on manual consistency updates;</li>
+    <li>developers working from specifications that differed by team, and saying so.</li>
+  </ul>
+  <p>That was design and technical debt growing with every new app, and an inconsistent experience for customers who used more than one product.</p>
+  <h3>The goal</h3>
+  <p>One consistent experience across every Tridonic app, and less time spent rebuilding the same parts, for web and mobile, from Figma to production code.</p>
+</section>
+
+<section id="decisions" data-nav="Design decisions">
+  <h2>Design decisions</h2>
+
+  <article class="decision">
+    <h3>One source of truth, from Figma to code</h3>
+    <p>Decisions about colour, type and spacing live as design tokens, generated from the Figma library into the code package, so a change in one place reaches every product. Each component page links back to its Figma source.</p>
+    <ol class="pipeline">
+      <li><b>Figma library</b>Components and styles, with usage guidance.</li>
+      <li><b>Design tokens</b>Colours, type and spacing as variables, made by a tokens generator.</li>
+      <li><b>Code package</b>React components, published to Tridonic's private registry.</li>
+      <li><b>Products</b>easyGO and lichtMONITOR, and other Tridonic apps.</li>
+    </ol>
+    <p class="tradeoff"><b>Trade-off:</b> a token pipeline takes longer to set up than a shared Figma file, but it is the only way a change in Figma reaches every product's code without a manual hand-off.</p>
+  </article>
+
+  <article class="decision">
+    <h3>Document every component as a working example</h3>
+    <p>Each component page shows the live component, its properties you can change, and the source code those changes produce, next to a link to Figma. Developers copy working code, not a picture of it.</p>
+    <div class="duo">
+      <figure><div class="shot"><img src="imgs/tds-component.jpg" alt="Checkbox documentation page with editable properties and generated source code" loading="lazy"></div>
+        <figcaption><b>Component page.</b> Change a property, see the code.</figcaption></figure>
+      <figure><div class="shot"><img src="imgs/tds-notes.jpg" alt="Getting started page with important notes about React versions and the package rename" loading="lazy"></div>
+        <figcaption><b>Getting started.</b> Breaking changes stated up front: React versions, the package rename, easyGO compatibility.</figcaption></figure>
+    </div>
+  </article>
+
+  <article class="decision">
+    <h3>Build the parts only this domain needs</h3>
+    <p>Generic buttons and inputs are easy to find anywhere. What product teams couldn't find were parts for lighting and IoT, so the library includes them: an input that takes GPS coordinates in several formats for locating installations, a wheel picker with time zones for schedules across sites, an energy consumption chart, and a canvas editor with layers for drawing, used for floor plans.</p>
+    <div class="trio">
+      <figure><div class="shot"><img src="imgs/tds-inputgps.jpg" alt="InputGPS component accepting coordinates in several formats" loading="lazy"></div>
+        <figcaption><b>InputGPS.</b> Paste coordinates in any common format.</figcaption></figure>
+      <figure><div class="shot"><img src="imgs/tds-complex.jpg" alt="Complex components: wheel picker with hour, minute and time zone, multi-button and checkbox list" loading="lazy"></div>
+        <figcaption><b>Complex components.</b> A time picker with time zone.</figcaption></figure>
+      <figure><div class="shot"><img src="imgs/tds-chart.jpg" alt="Energy consumption bar chart component" loading="lazy"></div>
+        <figcaption><b>Charts.</b> Energy consumption, as bars or a trend line.</figcaption></figure>
+    </div>
+  </article>
+</section>
+
+<section id="evolution" data-nav="Evolution">
+  <h2>From guidelines to a living product</h2>
+  <p>TDS started as documented guidelines and grew into a coded, versioned library that kept shipping after I moved on.</p>
+  <ul class="timeline-inline">
+    <li><span class="when">January 2021</span><span>TDS v1.1: guidelines site with components, layout grid, colour palette, best practices and inclusive design.</span></li>
+    <li><span class="when">Next</span><span>A coded React library; version 4.12.1 kept a router version easyGO needed.</span></li>
+    <li><span class="when">Version 6</span><span>Renamed to Lumen, published as @design-system/lumen.</span></li>
+    <li><span class="when">June 2025</span><span>Version 8.9.5 on React 19, with release notes for each update.</span></li>
+  </ul>
+  <figure>
+    <div class="shot"><img src="imgs/tds-misc.png" alt="Collage of the TDS v1.1 documentation: components, layout, colour palette, best practices and the Persona Spectrum" loading="lazy"></div>
+    <figcaption><b>TDS v1.1 documentation, 2021.</b> Components, layout and breakpoints, the colour palette, and inclusive design guidance built on Microsoft's Inclusive Design Persona Spectrum (permanent, temporary and situational disabilities).</figcaption>
+  </figure>
+  <figure>
+    <div class="shot"><img src="imgs/tds-changelog.jpg" alt="Lumen documentation home with release notes from May and June 2025" loading="lazy"></div>
+    <figcaption><b>Lumen v8.9.5, June 2025.</b> The same system four years later: four releases in six days, each with a release note.</figcaption>
+  </figure>
+</section>
+
+<section id="results" data-nav="Results">
+  <h2>Results</h2>
+  <ul class="results">
+    <li><span class="n">90%</span><span class="w">fewer design inconsistencies</span><span class="b">Compared with the original audit.</span></li>
+    <li><span class="n">40%</span><span class="w">less development time on average</span><span class="b">For interfaces built with the library.</span></li>
+    <li><span class="n">25%</span><span class="w">faster onboarding</span><span class="b">For new designers and developers.</span></li>
+    <li><span class="n">25–35%</span><span class="w">faster development of lichtMONITOR</span><span class="b">See the <a href="case-study-lichtmonitor.html">lichtMONITOR case</a>.</span></li>
+  </ul>
+  <p class="note">Figures as reported internally at Tridonic.</p>
+</section>
+
+<section id="lessons" data-nav="Lessons">
+  <h2>Lessons</h2>
+  <div class="lessons">
+    <div><h3>A design system is a product with users</h3>
+      <p>Versions, release notes, migration notes and a Figma link on every component are what kept teams on TDS. It needed a roadmap and a product owner like any other product.</p></div>
+    <div><h3>Domain components earn adoption</h3>
+      <p>Shared buttons are easy to copy from anywhere. The GPS input, the time-zone picker, the energy chart and the drawing canvas made TDS specific to Tridonic, and were the parts product teams couldn't build quickly on their own.</p></div>
+  </div>
+</section>

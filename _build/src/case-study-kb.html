@@ -1,0 +1,160 @@
+<!--
+title: KB RetroTool
+description: Product Owner and designer of an AI-assisted cataloguing tool that cut the time per book roughly in half for the National Library of the Netherlands.
+image: imgs/kb-capture.jpg
+-->
+<header class="case-hero" id="top">
+  <h1>KB RetroTool</h1>
+  <p class="lead">Cutting cataloguing time per book roughly in half for the National Library of the Netherlands.</p>
+  <hr class="lumen">
+  <dl class="facts">
+    <div><dt>Client</dt><dd>KB, National Library of the Netherlands</dd></div>
+    <div><dt>Agency</dt><dd>DEUS.AI</dd></div>
+    <div><dt>When</dt><dd>2023</dd></div>
+    <div><dt>My role</dt><dd>Product Owner and product designer</dd></div>
+    <div><dt>Team</dt><dd>6-person Scrum team</dd></div>
+    
+  </dl>
+  <figure class="hero-media">
+    <div class="frame">
+      <video controls preload="none" playsinline poster="imgs/kb-poster.jpg">
+        <source src="imgs/kb-video.mp4" type="video/mp4">
+      </video>
+    </div>
+    <figcaption><b>The KB's own preview of the tool.</b> A cataloguer walks through a real book, from the document camera to the match in Alma. Dutch with English subtitles, 3 minutes.</figcaption>
+  </figure>
+</header>
+
+<section id="context" data-nav="Context and role">
+  <h2>Context and role</h2>
+  <p>The KB collects everything published in the Netherlands. It fills the gaps with donated and second-hand books, the "retro collection", and the backlog had grown past 50,000 books. Before a book can enter the collection, a cataloguer checks whether the KB already holds that edition in Alma, its cataloguing system, and if not, writes a basic description.</p>
+  <p>DEUS.AI built the RetroTool for the KB as a proof of concept that cataloguers tested on real books. I was the Product Owner for a 6-person Scrum team and designed the product.</p>
+  <div class="contrib">
+    <div class="donut"><script type="application/json">[
+      {"percentage": 50, "legend": "Product ownership", "color": "#f5b841"},
+      {"percentage": 30, "legend": "Design", "color": "#2348d6"},
+      {"percentage": 20, "legend": "Research", "color": "#2a9d8f"}]</script></div>
+    <ul>
+      <li>I owned the backlog and the roadmap, with success metrics for each phase.</li>
+      <li>I ran contextual inquiries and interviews with cataloguers and mapped the manual workflow.</li>
+      <li>I designed the flows, the wireframes and the review screens.</li>
+      <li>I kept the KB's project manager and cataloguers involved in priorities and reviews.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="problem" data-nav="Problem">
+  <h2>The problem: 15 to 20 minutes a book</h2>
+  <p>Each book took a cataloguer 15 to 20 minutes, and most of that went into three jobs:</p>
+  <ul>
+    <li>searching Alma for duplicates, often several searches for one book;</li>
+    <li>typing title, author, publisher and year by hand;</li>
+    <li>writing a new record from scratch when the book was not there yet.</li>
+  </ul>
+  <p>At that pace the backlog grew faster than the team could work through it, and hand-typed records varied in quality.</p>
+  <figure>
+    <a class="shot pad zoom" href="imgs/kb-flow1.png"><img src="imgs/kb-flow1.png" alt="Flowchart of the manual cataloguing workflow, with the slow steps marked in red" loading="lazy"></a>
+    <figcaption><b>The manual workflow, as I mapped it with cataloguers.</b> Red marks where the time went: repeated searches, manual comparison and records written from scratch. Select to open full size.</figcaption>
+  </figure>
+</section>
+
+<section id="insights" data-nav="Research and insights">
+  <h2>What research changed</h2>
+  <p>I watched cataloguers at their desks, interviewed the most experienced ones about how they decide two books are the same edition, and mapped the process step by step. With engineering, we tested OCR services, large language models and a custom matching model on real title pages. We chose Azure Vision for OCR because it read old and unusual typography best.</p>
+  <ul class="findings">
+    <li><p class="saw"><span class="k">We saw</span>The title page and the colophon hold almost everything a record needs.</p>
+        <p class="did"><span class="k">So I designed</span>Capture around two photos under a document camera. OCR fills eight fields that map one to one to Alma's fields.</p></li>
+    <li><p class="saw"><span class="k">We saw</span>"Is this the same edition?" is a judgement made field by field.</p>
+        <p class="did"><span class="k">So I designed</span>Search results with a match score for each field, not a single yes or no.</p></li>
+    <li><p class="saw"><span class="k">We saw</span>No single method read every book well. OCR alone missed context, and online sources had gaps.</p>
+        <p class="did"><span class="k">So I designed</span>A method choice: OCR only, OCR with Google Books, OCR with an LLM, or an experimental custom model.</p></li>
+    <li><p class="saw"><span class="k">We saw</span>Cataloguers would only rely on the tool if fixing its mistakes was faster than typing.</p>
+        <p class="did"><span class="k">So I designed</span>Editable fields before every search, drafts to finish later, and nothing written to Alma until a cataloguer confirms the match.</p></li>
+  </ul>
+  <figure>
+    <a class="shot pad zoom" href="imgs/kb-flow2.png"><img src="imgs/kb-flow2.png" alt="Flowchart of the assisted workflow: photos, OCR, AI matching, cataloguer review" loading="lazy"></a>
+    <figcaption><b>The assisted workflow.</b> Photos go through OCR, AI proposes matches or a draft record, and the cataloguer reviews and corrects before anything reaches Alma.</figcaption>
+  </figure>
+</section>
+
+<section id="decisions" data-nav="Design decisions">
+  <h2>Design decisions</h2>
+
+  <article class="decision">
+    <h3>Show why a record matches</h3>
+    <p>The match screen lists every candidate record side by side, with an overall score on top and a score for each field underneath: author, title, subtitle, place, publisher, year, ISBN and edition. A 100% title next to a 40% year tells the cataloguer to check the edition before saying yes.</p>
+    <p class="tradeoff"><b>Trade-off:</b> a denser screen than a single "match" answer. I kept it because the decision has to stay with the cataloguer, and the scores make it a quick one.</p>
+    <div class="duo">
+      <figure><div class="shot"><img src="imgs/kb-wf2.png" alt="Wireframe of the match screen with 100%, 70% and 40% overall matches" loading="lazy"></div>
+        <figcaption><b>Wireframe.</b> The first version of field-level scores.</figcaption></figure>
+      <figure><div class="shot"><img src="imgs/kb-matches.jpg" alt="Built match screen listing 14 candidate records with per-field percentages" loading="lazy"></div>
+        <figcaption><b>Built.</b> A book with 14 candidate records, each field scored and coloured.</figcaption></figure>
+    </div>
+  </article>
+
+  <article class="decision">
+    <h3>Capture first, then search</h3>
+    <p>A cataloguer places the book under the document camera and photographs the title page and colophon; covers and other pages are optional. OCR splits the text into eight fields, each tied to an Alma field. One checkbox adds details from data.bibliotheken.nl and Google Books. Then one large button searches Alma.</p>
+    <p class="tradeoff"><b>Trade-off:</b> the cataloguer still reviews every field. I chose a short review over silent automation, because a wrong field means a wrong search.</p>
+    <div class="duo">
+      <figure><div class="shot"><img src="imgs/kb-wf1.png" alt="Wireframe of the capture screen with photo, fields and Search in Alma button" loading="lazy"></div>
+        <figcaption><b>Wireframe.</b> Photo on the left, editable fields on the right.</figcaption></figure>
+      <figure><div class="shot"><img src="imgs/kb-capture.jpg" alt="Built capture screen with a photographed colophon and the fields filled by OCR" loading="lazy"></div>
+        <figcaption><b>Built.</b> The colophon photo, the fields OCR filled, and Search in Alma.</figcaption></figure>
+    </div>
+  </article>
+
+  <article class="decision">
+    <h3>Let cataloguers choose the method</h3>
+    <p>For each book, cataloguers could pick how the details were filled: OCR only, OCR plus Google Books, OCR plus an LLM through Sancus AI, or a custom model in beta. It let us compare the methods on real books with expert users, and gave a fallback when one method failed on a hard book.</p>
+    <p class="tradeoff"><b>Trade-off:</b> technical names in a tool for cataloguers. That was acceptable for expert users during the pilot; see the lessons below.</p>
+    <figure class="narrow"><div class="shot pad"><img src="imgs/kb-options.png" alt="Method chooser: OCR, OCR plus Google Books API, OCR plus Sancus LLM, custom ML model" loading="lazy"></div>
+      <figcaption><b>The method chooser.</b> Each option says in one line what it adds.</figcaption></figure>
+  </article>
+
+  <div class="crosslink"><p>The LLM option runs on <a href="case-study-sancus.html">Sancus AI</a>, the document question-answering product I worked on at DEUS: a retrieval layer over a language model.</p></div>
+</section>
+
+<section id="roadmap" data-nav="Roadmap and targets">
+  <h2>Roadmap and the targets I set</h2>
+  <p>I planned delivery in three phases, each with its own success metrics, so "working" had a definition before we built anything.</p>
+  <div class="table-wrap wide">
+    <table>
+      <thead><tr><th></th><th>Phase 1: core</th><th>Phase 2: refinement</th><th>Phase 3: scale</th></tr></thead>
+      <tbody>
+        <tr><th>When</th><td>To Q2 2023</td><td>Q3 to Q4 2023</td><td>From Q1 2024</td></tr>
+        <tr><th>User stories</th><td>Photograph books and extract text; identify books in Alma from OCR data</td><td>Map data to Alma automatically; correct mapping errors easily; save drafts; suggest duplicates; draft title descriptions</td><td>Monitor the tool; support more book types and workflows; suggest extra fields</td></tr>
+        <tr><th>Key features</th><td>Image capture, OCR, Alma search, basic review and correction</td><td>Alma write and update, better mapping, drafts and barcode search, duplicate detection</td><td>Performance dashboard, configurable workflows, ML field suggestions, links to other systems</td></tr>
+        <tr><th>Success metrics</th><td>OCR accuracy above 85%; Alma identification above 70%; feedback on workflow efficiency</td><td>Less manual entry time; mapping accuracy above 90%; cataloguer satisfaction with error correction</td><td>Processing capacity; tool adoption; size of the feature request backlog</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="results" data-nav="Results">
+  <h2>Results</h2>
+  <ul class="results">
+    <li><span class="n">40–50%</span><span class="w">less time per book</span><span class="b">From 15–20 minutes to about 8–12.</span></li>
+    <li><span class="n">98%</span><span class="w">accuracy in identifying duplicates</span><span class="b">Whether a book was already in Alma.</span></li>
+    <li><span class="n">25%</span><span class="w">more complete metadata</span><span class="b">Compared with hand-typed records.</span></li>
+    <li><span class="n">500–700</span><span class="w">more books processed a month</span><span class="b">At 6–10 minutes saved per book, roughly 50–120 cataloguer hours a month.</span></li>
+    <li><span class="n">18 months</span><span class="w">projected saving on the KB's 2030 digital heritage roadmap</span><span class="b">A forecast for clearing the retro collection.</span></li>
+  </ul>
+  <p class="note">Figures as reported by the project team; the time saving is measured per book against the 15–20 minute baseline.</p>
+  <blockquote>
+    <p>"This is already much faster than removing doubles from the retro collection by hand."</p>
+    <footer>Cataloguer at the KB, in the preview video</footer>
+  </blockquote>
+</section>
+
+<section id="lessons" data-nav="Lessons">
+  <h2>Lessons</h2>
+  <div class="lessons">
+    <div><h3>Show the evidence instead of asking for trust</h3>
+      <p>Field-level scores let cataloguers check a match in seconds instead of taking the tool's word for it. That transparency is what made AI suggestions usable for expert users.</p></div>
+    <div><h3>Name options by outcome, not by technology</h3>
+      <p>"OCR + LLM" worked for a pilot with experts. For a wider rollout I would name the methods by what they give, such as "text from photos" or "add online sources", and pick a default.</p></div>
+  </div>
+  <h3>What's next</h3>
+  <p>The KB saw the tool spreading to other cataloguing workflows, and video capture could speed up intake and quality checks further.</p>
+</section>

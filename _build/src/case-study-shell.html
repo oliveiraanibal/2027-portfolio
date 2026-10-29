@@ -1,0 +1,157 @@
+<!--
+title: Shell Mobility offers
+description: Product designer of the internal tool that lets Shell's markets create loyalty offers, manage partners and approve changes without weeks of manual work.
+image: imgs/shell-dashboard.jpg
+-->
+<header class="case-hero">
+  <h1>Shell Mobility offers</h1>
+  <p class="lead">An internal tool that lets Shell's markets create loyalty offers and set up partners themselves, instead of waiting 8 to 12 weeks.</p>
+  <hr class="lumen">
+  <dl class="facts">
+    <div><dt>Client</dt><dd>Shell Mobility</dd></div>
+    <div><dt>Agency</dt><dd>DEUS.AI</dd></div>
+    <div><dt>When</dt><dd>2023</dd></div>
+    <div><dt>My role</dt><dd>Product designer</dd></div>
+    <div><dt>Users</dt><dd>Offer teams per market, approvers, admins and external partners</dd></div>
+  </dl>
+  <figure class="hero-media">
+    <div class="frame">
+      <video controls muted autoplay loop playsinline preload="metadata" poster="imgs/shell-dashboard.jpg">
+        <source src="imgs/shell-hero.mp4" type="video/mp4">
+      </video>
+    </div>
+    <figcaption><b>The prototype I designed, end to end.</b> Sign in, the market dashboard, a new offer, partners and roles. Content is placeholder. Under 1.5 minutes, no sound.</figcaption>
+  </figure>
+</header>
+
+<section id="context" data-nav="Context and role">
+  <h2>Context and role</h2>
+  <p>Shell runs loyalty offers in many markets, often with partner brands: discounts on fuel, rewards, games. In 2023 Shell asked DEUS.AI to replace the manual processes, legacy systems and siloed teams behind them. The engineering team rebuilt the back end as microservices. I designed the tool people use on top of it.</p>
+  <div class="contrib">
+    <div class="donut"><script type="application/json">[
+      {"percentage": 50, "legend": "Design", "color": "#2348d6"},
+      {"percentage": 35, "legend": "Research", "color": "#2a9d8f"},
+      {"percentage": 15, "legend": "Product management", "color": "#f5b841"}]</script></div>
+    <ul>
+      <li>I researched needs and constraints through stakeholder interviews, task analysis and shadowing.</li>
+      <li>I wrote scenarios with the team and turned requirements into flows and a service blueprint.</li>
+      <li>I built interactive prototypes and validated them with stakeholders.</li>
+      <li>I designed the interface for offers, partners, users and roles.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="problem" data-nav="Problem">
+  <h2>The problem: 8 to 12 weeks per offer</h2>
+  <p>A new loyalty offer took 8 to 12 weeks to go live. The time went into:</p>
+  <ul>
+    <li>manual, error-prone steps to create offers and onboard partners;</li>
+    <li>physical sign-offs before an offer could move on;</li>
+    <li>updates in several legacy systems that didn't share data, so errors appeared late and far from their cause;</li>
+    <li>no shared view of offers and partners across departments.</li>
+  </ul>
+  <p>Markets couldn't react to competitors or seasons, and partners waited months to be set up.</p>
+</section>
+
+<section id="insights" data-nav="Research and insights">
+  <h2>What research changed</h2>
+  <p>I interviewed the people who create, approve and support offers, shadowed them through real requests, and broke the work into tasks to find where it stalled.</p>
+  <ul class="findings">
+    <li><p class="saw"><span class="k">We saw</span>Offers sat for weeks waiting for signatures on paper.</p>
+        <p class="did"><span class="k">So I designed</span>Approval inside the tool: an Approver role with its own permissions, so sign-off is a step, not an email chase.</p></li>
+    <li><p class="saw"><span class="k">We saw</span>Each market runs its own offers and rarely looks at others.</p>
+        <p class="did"><span class="k">So I designed</span>A dashboard scoped to one market, with a default market that opens after login.</p></li>
+    <li><p class="saw"><span class="k">We saw</span>Many offers repeat with small changes.</p>
+        <p class="did"><span class="k">So I designed</span>Templates: load one to start an offer, save any offer as one.</p></li>
+    <li><p class="saw"><span class="k">We saw</span>Errors appeared only after an offer reached the loyalty systems.</p>
+        <p class="did"><span class="k">So I designed</span>Validation before submit, and a Failed status that explains which system rejected the offer and what to do.</p></li>
+    <li><p class="saw"><span class="k">We saw</span>Partners depended on Shell staff for every change.</p>
+        <p class="did"><span class="k">So I designed</span>A separate sign-in for external partners, so they can request access and keep their own details up to date.</p></li>
+  </ul>
+  <figure>
+    <a class="shot zoom" href="imgs/shell-cj.png"><img src="imgs/shell-cj.png" alt="Service blueprint for logging in and creating an offer, with two error points marked" loading="lazy"></a>
+    <figcaption><b>Service blueprint: log in and create an offer.</b> User steps on top; screens and system calls below: credentials checked in SIMAAS or CIPM, offer data validated by COCO, the approved offer uploaded to the loyalty systems. The two red points are where things fail, and the design answers both: clear sign-in errors, and validation before submit. Select to open full size.</figcaption>
+  </figure>
+</section>
+
+<section id="decisions" data-nav="Design decisions">
+  <h2>Design decisions</h2>
+
+  <article class="decision">
+    <h3>Open on what needs attention</h3>
+    <p>The dashboard opens on the user's market with three counters on top: drafts, offers ready to assign, and failed offers. Each counter is a filter, so the first thing an offer manager sees is the work waiting for them. A star makes a market the default after login.</p>
+    <figure><div class="shot"><img src="imgs/shell-dashboard.jpg" alt="Great Britain market dashboard with Draft, Ready to assign and Failed counters and the default-market tooltip" loading="lazy"></div>
+      <figcaption><b>Market dashboard.</b> Status counters as entry points; the star sets the default market.</figcaption></figure>
+  </article>
+
+  <article class="decision">
+    <h3>A form that grows with the offer type</h3>
+    <p>Offer types need very different data. The form starts with the basics, and once the type is chosen it adds only the tabs that type needs: achievement rules, rewards, limits, game details, partner, content. Submit stays disabled, with a line explaining why, until every mandatory field is valid. Content is written per language with a live preview for the mobile and web apps.</p>
+    <p class="tradeoff"><b>Trade-off:</b> a complex offer still means eight tabs. I kept them as tabs rather than a wizard, because experienced users jump between sections while they edit.</p>
+    <div class="trio">
+      <figure><div class="shot"><img src="imgs/shell-offer-new.jpg" alt="New offer form with two tabs and a note that Submit is enabled once mandatory fields are valid" loading="lazy"></div>
+        <figcaption><b>Start.</b> Two tabs; Submit explains why it is disabled.</figcaption></figure>
+      <figure><div class="shot"><img src="imgs/shell-offer.jpg" alt="Offer form after choosing a type, with eight tabs and Submit enabled" loading="lazy"></div>
+        <figcaption><b>Type chosen.</b> The tabs that type needs; Submit enabled.</figcaption></figure>
+      <figure><div class="shot"><img src="imgs/shell-content.jpg" alt="Content tab with languages, fields and a live mobile app preview" loading="lazy"></div>
+        <figcaption><b>Content.</b> One version per language, previewed as the customer sees it.</figcaption></figure>
+    </div>
+  </article>
+
+  <article class="decision">
+    <h3>Explain failure where it happens</h3>
+    <p>An offer can be rejected by any of the systems behind the tool. The status legend says in plain words what each status means and what to do, and actions that ripple into other systems, such as changing a partner code used by LoD and Hybris, say so before they happen.</p>
+    <div class="duo">
+      <figure><div class="shot"><img src="imgs/shell-status.jpg" alt="About offer status dialog explaining Draft, Submitting, Failed, Ready to assign and Expired" loading="lazy"></div>
+        <figcaption><b>Status legend.</b> Failed names the systems and the fix: check the errors, correct, submit again.</figcaption></figure>
+      <figure><div class="shot"><img src="imgs/shell-partner-code.jpg" alt="Confirmation dialog warning that changing a partner code could affect existing records" loading="lazy"></div>
+        <figcaption><b>Consequences first.</b> The dialog names the systems affected before the change.</figcaption></figure>
+    </div>
+  </article>
+
+  <article class="decision">
+    <h3>Permissions instead of signatures</h3>
+    <p>Physical sign-offs became four roles: administrator, manager, collaborator and approver, each defined per service. The matrix shows exactly who can create, edit, submit, test, approve or delete. Shell staff sign in with their company account; partners use their own door.</p>
+    <p class="tradeoff"><b>Trade-off:</b> a permission matrix is dense. It is only for administrators, and making every permission visible was the price of replacing paper sign-offs in a regulated business.</p>
+    <div class="duo">
+      <figure><div class="shot"><img src="imgs/shell-roles.jpg" alt="Roles matrix with permissions for administrator, manager, collaborator and approver" loading="lazy"></div>
+        <figcaption><b>Roles.</b> Only approvers and administrators can approve an offer.</figcaption></figure>
+      <figure><div class="shot"><img src="imgs/shell-login.jpg" alt="Sign-in screen with separate options for external and internal users" loading="lazy"></div>
+        <figcaption><b>Two doors.</b> Partners request access or log in; Shell staff authenticate with their company account.</figcaption></figure>
+    </div>
+  </article>
+</section>
+
+<section id="delivery" data-nav="Delivery">
+  <h2>How it was built</h2>
+  <p>Design ran one step ahead of development. Discovery work (scoping, design and a technical review) fed a delivery board with QA and user acceptance testing, and prototypes changed after each review with stakeholders.</p>
+  <div class="duo">
+    <figure><div class="shot pad"><img src="imgs/shell-flows.png" alt="Two workflow boards: discovery and delivery" loading="lazy"></div>
+      <figcaption><b>Two tracks.</b> Discovery on the right (backlog, scoping, design, tech review) feeding delivery on the left (development, QA, acceptance testing).</figcaption></figure>
+    <figure><div class="shot pad"><img src="imgs/shell-architect.png" alt="Architecture: clients and users through an API gateway to offers, partners, transactions, NFR items and auth microservices" loading="lazy"></div>
+      <figcaption><b>The engineering team's architecture.</b> An API gateway in front of separate services for offers, partners, transactions and authentication, talking to each other over gRPC.</figcaption></figure>
+  </div>
+</section>
+
+<section id="results" data-nav="Results">
+  <h2>Results</h2>
+  <ul class="results">
+    <li><span class="n">100 days → 10 min</span><span class="w">to onboard a partner</span><span class="b">Partner self-service and in-tool setup.</span></li>
+    <li><span class="n">2 days → 15 min</span><span class="w">to create a reward</span><span class="b">Templates and a form that asks only what is needed.</span></li>
+    <li><span class="n">9× fewer</span><span class="w">errors in offer assignments</span><span class="b">Validation before submit.</span></li>
+    <li><span class="n">3× faster</span><span class="w">time to market</span><span class="b">Process and platform together.</span></li>
+    <li><span class="n">8× faster</span><span class="w">development</span><span class="b">The new architecture.</span></li>
+    <li><span class="n">Half</span><span class="w">the cloud infrastructure cost</span><span class="b">The new architecture.</span></li>
+  </ul>
+  <p class="note">Figures as reported by the project. The first three are where the tool's design did the work; the last two come from the engineering platform.</p>
+</section>
+
+<section id="lessons" data-nav="Lessons">
+  <h2>Lessons</h2>
+  <div class="lessons">
+    <div><h3>Approvals are a design problem</h3>
+      <p>Replacing paper sign-offs meant designing the permission model with the people who sign, not only the screens they click.</p></div>
+    <div><h3>One tool, two audiences</h3>
+      <p>Partners and Shell staff work on the same offers but need different doors, words and permissions. Designing for both from the start avoided a second tool later.</p></div>
+  </div>
+</section>

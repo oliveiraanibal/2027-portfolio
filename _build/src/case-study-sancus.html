@@ -1,0 +1,187 @@
+<!--
+title: Sancus AI
+description: Product designer and associate PM on Sancus, DEUS.AI's product for asking questions of company documents and getting answers with their sources.
+image: imgs/sancus1.jpg
+-->
+<header class="case-hero">
+  <h1>Sancus AI</h1>
+  <p class="lead">Ask your company's documents a question and get an answer with its sources.</p>
+  <hr class="lumen">
+  <dl class="facts">
+    <div><dt>Company</dt><dd>DEUS.AI, own product</dd></div>
+    <div><dt>When</dt><dd>2023</dd></div>
+    <div><dt>My role</dt><dd>Product designer and associate product manager</dd></div>
+    <div><dt>Product</dt><dd>B2B SaaS, retrieval-augmented question answering</dd></div>
+  </dl>
+  <figure class="hero-media">
+    <div class="frame">
+      <video controls muted autoplay loop playsinline preload="metadata" poster="imgs/sancus1.jpg">
+        <source src="imgs/sancus3.mp4" type="video/mp4">
+      </video>
+    </div>
+    <figcaption><b>The MVP, end to end.</b> First-run guide, uploading and curating documents, choosing which ones to chat with, and an answer with its sources. One minute, no sound.</figcaption>
+  </figure>
+</header>
+
+<section id="context" data-nav="Context and role">
+  <h2>Context and role</h2>
+  <p>In 2023 DEUS.AI decided to build its own retrieval-augmented generation (RAG) product: a chat that answers from a company's own files instead of the open web. Sancus was the result. It was then put to work in a client project, as the LLM option of <a href="case-study-kb.html">KB RetroTool</a> for the National Library of the Netherlands.</p>
+  <p>I worked on Sancus as product designer and associate product manager, from discovery to the MVP.</p>
+  <div class="contrib">
+    <div class="donut"><script type="application/json">[
+      {"percentage": 40, "legend": "Design", "color": "#2348d6"},
+      {"percentage": 30, "legend": "Product management", "color": "#f5b841"},
+      {"percentage": 15, "legend": "Research", "color": "#2a9d8f"},
+      {"percentage": 15, "legend": "Marketing", "color": "#e4576e"}]</script></div>
+    <ul>
+      <li>I ran the discovery: jobs to be done, a competitor review and the target journey.</li>
+      <li>I mapped outcomes to features and helped prioritise the MVP backlog.</li>
+      <li>I designed the product, from wireframes to high-fidelity screens and prototypes.</li>
+      <li>I contributed to the roadmap and the go-to-market plan.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="problem" data-nav="Problem">
+  <h2>The problem: answers you can't find, or can't trust</h2>
+  <p>In most companies the answer to a question already exists, in a report, a policy or a wiki page, spread over systems nobody searches well. People ask colleagues, dig through folders, or give up. Early AI chat tools made this faster, but their answers came without sources, so nobody could rely on them for a decision.</p>
+  <h3>The jobs Sancus is hired for</h3>
+  <p>I framed the research as jobs to be done: three for the people asking questions, one for the company buying the tool.</p>
+  <ul class="findings">
+    <li><p class="saw"><span class="k">User</span>Finding</p><p class="did">"When I'm looking for specific information, I want to find it quickly and reliably, so I can finish my task."</p></li>
+    <li><p class="saw"><span class="k">User</span>Understanding</p><p class="did">"When I need to understand a complex topic from internal documents, I want a clear summary with source references, so I can trust it and dig further."</p></li>
+    <li><p class="saw"><span class="k">User</span>Onboarding</p><p class="did">"When a new person joins my team, I want them to reach our company knowledge on their own, so they become productive sooner."</p></li>
+    <li><p class="saw"><span class="k">Buyer</span>Using what we know</p><p class="did">"When our knowledge base is large and scattered, we want every employee to use it, so we make better decisions."</p></li>
+  </ul>
+</section>
+
+<section id="insights" data-nav="Research and insights">
+  <h2>What research changed</h2>
+  <p>Beyond the jobs, I reviewed competing RAG products for business and mapped a target journey for an analyst preparing figures for a meeting. Four findings shaped the MVP:</p>
+  <ul class="findings">
+    <li><p class="saw"><span class="k">We saw</span>People didn't trust an AI answer they couldn't check.</p>
+        <p class="did"><span class="k">So we decided</span>Every answer cites its sources, and "Why this answer" opens the exact page it came from.</p></li>
+    <li><p class="saw"><span class="k">We saw</span>Answer quality depends on what goes in: untitled, outdated or duplicate files produce weak answers.</p>
+        <p class="did"><span class="k">So we decided</span>Curation is part of the product: titles and descriptions at upload, obsolete files hidden, and a dataset chosen per conversation.</p></li>
+    <li><p class="saw"><span class="k">We saw</span>Competitors led with many data connectors; few helped people understand and curate documents.</p>
+        <p class="did"><span class="k">So we decided</span>Compete on trustworthy answers, not on the number of integrations.</p></li>
+    <li><p class="saw"><span class="k">We saw</span>Data privacy was the first question every company asked.</p>
+        <p class="did"><span class="k">So we decided</span>Authentication and per-company data isolation went into the MVP, not a later phase.</p></li>
+  </ul>
+  <h3>From outcomes to features</h3>
+  <p>I mapped the business outcome to opportunities, solutions and features. The two branches marked below became the core of the MVP.</p>
+  <div class="table-wrap wide">
+    <table>
+      <thead><tr><th>Opportunity</th><th>Solution</th><th>Features</th></tr></thead>
+      <tbody>
+        <tr><td><b>Reduce the time spent searching</b></td><td>Conversational chat <i>(MVP)</i></td><td>Questions in natural language; instant, summarised answers</td></tr>
+        <tr><td></td><td>One place for company knowledge</td><td>Data connectors; one search across sources</td></tr>
+        <tr><td><b>Support better decisions</b></td><td>Answers backed by sources <i>(MVP)</i></td><td>Direct source citations; a way to verify each answer</td></tr>
+        <tr><td></td><td>Retrieval that understands context</td><td>Semantic search; re-ranking for relevance</td></tr>
+        <tr><td><b>Speed up onboarding</b></td><td>Easy access to policies and procedures</td><td>A knowledge base for HR and onboarding; role-based access</td></tr>
+        <tr><td><b>Share knowledge across teams</b></td><td>Break down data silos</td><td>Integration with internal systems; shared knowledge-base management (later)</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="table-cap">Outcome: make better use of company knowledge. Rebuilt from my original map.</p>
+</section>
+
+<section id="decisions" data-nav="Design decisions">
+  <h2>Design decisions</h2>
+
+  <article class="decision">
+    <h3>Teach the model in four steps</h3>
+    <p>Most first-time users had never used a chat that answers only from their own files. The empty state is a four-step guide (upload files, start a conversation, choose a dataset, ask something), and each step spotlights the control it refers to.</p>
+    <p class="tradeoff"><b>Trade-off:</b> a guided first run instead of an empty chat box. It costs a few seconds and prevents the most common mistake: asking before any documents are in.</p>
+    <figure><div class="shot"><img src="imgs/sancus-onboarding.jpg" alt="How to use screen with step 3, Define a dataset, highlighted and an arrow to the document picker" loading="lazy"></div>
+      <figcaption><b>First run.</b> Step 3 points at the document picker at the top of the chat.</figcaption></figure>
+  </article>
+
+  <article class="decision">
+    <h3>Ask for context at upload, and say why</h3>
+    <p>When a file is uploaded, Sancus suggests a title and asks for a description, with one line of reasoning: a meaningful title and description improve the answers. Documents missing one keep a visible warning, and outdated files can be flagged as obsolete and hidden from chats.</p>
+    <p class="tradeoff"><b>Trade-off:</b> an extra step in the upload. I made it skippable rather than mandatory, and moved the nudge to the document itself so it isn't forgotten.</p>
+    <div class="duo">
+      <figure><div class="shot"><img src="imgs/sancus-upload.jpg" alt="New file dialog with auto-generated title, description field, preview and an accuracy warning" loading="lazy"></div>
+        <figcaption><b>Upload.</b> Title suggested, description requested, Skip available.</figcaption></figure>
+      <figure><div class="shot"><img src="imgs/sancus-curate.jpg" alt="Document picker with a show obsolete toggle and a document panel warning about a missing description" loading="lazy"></div>
+        <figcaption><b>Curation.</b> Choose the documents for this chat; obsolete ones hidden; a missing description flagged.</figcaption></figure>
+    </div>
+  </article>
+
+  <article class="decision">
+    <h3>Show what is ready to use</h3>
+    <p>Indexing a large PDF takes time, and a document that failed to process gives no answers. The knowledge base lists every file with its status (uploading, processing, error or ready), so people know what Sancus can already draw on.</p>
+    <figure><div class="shot"><img src="imgs/sancus-status.jpg" alt="Knowledge base table with uploading, processing, error and ready statuses" loading="lazy"></div>
+      <figcaption><b>Knowledge base.</b> Status per document, with errors in red at the top.</figcaption></figure>
+  </article>
+
+  <article class="decision">
+    <h3>Make every answer checkable</h3>
+    <p>Answers carry numbered citations inline. "Why this answer" opens a panel listing the source documents and pages, with the passage highlighted. Summarise and Regenerate sit under each answer, with thumbs up and down for feedback on quality.</p>
+    <p class="tradeoff"><b>Trade-off:</b> citations make answers longer and the chat busier. We chose verification over a clean chat look, because an unchecked answer can't go into a report.</p>
+    <figure><div class="shot"><img src="imgs/sancus-sources.jpg" alt="Answer with numbered citations and the Why this answer panel showing source pages and a highlighted passage" loading="lazy"></div>
+      <figcaption><b>Why this answer.</b> Five sources with page numbers; the passage used is highlighted in the original document.</figcaption></figure>
+  </article>
+</section>
+
+<section id="delivery" data-nav="MVP and roadmap">
+  <h2>MVP scope and roadmap</h2>
+  <p>The biggest scope call was breadth against depth. The MVP took PDF, DOCX and TXT uploads only, and moved connectors such as Confluence and SharePoint to the closed beta. That kept the team on answer quality and curation, where we wanted to stand out.</p>
+  <div class="table-wrap wide">
+    <table>
+      <thead><tr><th></th><th>Phase 1: MVP</th><th>Phase 2: closed beta</th><th>Phase 3: public launch</th></tr></thead>
+      <tbody>
+        <tr><th>Focus</th><td>Core RAG, file upload (PDF, DOCX, TXT), chat interface, basic admin</td><td>Validation with users, feedback-driven iteration, performance, first enterprise integrations</td><td>Market expansion, enterprise features, scaling, partnerships</td></tr>
+        <tr><th>Key work</th><td>RAG pipeline (embeddings, vector database, LLM); secure file parsing; chat UI; authentication and data isolation; alpha testing</td><td>Onboard 20 strategic beta customers; interviews and surveys; engagement and accuracy metrics; UI and RAG iterations; Confluence and SharePoint</td><td>Public launch; scaling for load; role-based access and audit logs; sales and marketing; advanced integrations</td></tr>
+        <tr><th>Exit criteria</th><td>A working MVP ready for a closed beta</td><td>Validated product-market fit and better accuracy metrics</td><td>A production-grade platform with a growing customer base</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <figure>
+    <div class="shot"><img src="imgs/sancus-architecture.png" alt="Architecture: knowledge base, data ingestion, chunker, encoder, vector store, retriever and LLM endpoint" loading="lazy"></div>
+    <figcaption><b>How an answer is made.</b> Documents are split into chunks and stored as vectors; a question retrieves the closest chunks, and the LLM writes the answer from them. Because retrieval keeps track of where each chunk came from, the interface can show sources. It also explains why good titles and descriptions matter.</figcaption>
+  </figure>
+  <h3>Target journey</h3>
+  <p>A to-be scenario I used to align the team: Diana, an analyst, needs Q3 EMEA sales figures for an executive meeting.</p>
+  <div class="table-wrap wide">
+    <table>
+      <thead><tr><th>Step</th><th>What Diana does</th><th>Pain point today</th><th>What Sancus offers</th></tr></thead>
+      <tbody>
+        <tr><td>Need</td><td>Gets a request for Q3 2024 EMEA sales figures</td><td>Information scattered across systems</td><td>One place for the data</td></tr>
+        <tr><td>Search</td><td>Asks Sancus: "Q3 2024 EMEA sales performance"</td><td>Keyword search is slow and imprecise</td><td>Questions in natural language</td></tr>
+        <tr><td>Answer</td><td>Gets a summary with key figures, citing three reports</td><td>No trust in answers without sources</td><td>Source citations</td></tr>
+        <tr><td>Verify</td><td>Opens a cited report to check the numbers</td><td>Cross-checking is hard</td><td>Links to the exact source page</td></tr>
+        <tr><td>Follow up</td><td>Asks for the top 3 product lines</td><td>Context typed again for every question</td><td>Conversation memory</td></tr>
+        <tr><td>Report</td><td>Copies figures into her executive summary</td><td>Manual compilation</td><td>Summaries ready to reuse</td></tr>
+        <tr><td>Share</td><td>Wants to send the chat to a colleague</td><td>Insights are hard to pass on</td><td>Shared chats (later)</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <figure>
+    <div class="shot"><video controls muted playsinline preload="none" poster="imgs/sancus-lp-poster.jpg"><source src="imgs/sancus-lp.mp4" type="video/mp4"></video></div>
+    <figcaption><b>Launch landing page.</b> Positioning for the phased go-to-market: start with mid-sized tech companies, prove the value in a closed beta, then expand. One minute, no sound.</figcaption>
+  </figure>
+</section>
+
+<section id="results" data-nav="Results">
+  <h2>Results</h2>
+  <ul class="results">
+    <li><span class="n">92.3%</span><span class="w">of generated answers rated relevant</span><span class="b">MVP benchmark tests.</span></li>
+    <li><span class="n">0.38 s</span><span class="w">to retrieve from 100 files</span><span class="b">Retrieval time per query in the benchmark.</span></li>
+    <li><span class="n">25%</span><span class="w">less time to integrate into a client process</span><span class="b">As reported for the MVP.</span></li>
+  </ul>
+  <p class="note">Engineering benchmarks from the MVP, as published at launch. Sancus was then used as the LLM option in <a href="case-study-kb.html">KB RetroTool</a>.</p>
+</section>
+
+<section id="lessons" data-nav="Lessons">
+  <h2>Lessons</h2>
+  <div class="lessons">
+    <div><h3>Data quality shows up in the interface</h3>
+      <p>A RAG product is only as good as its documents, so curation (titles, descriptions, obsolete files, datasets) had to be designed as carefully as the chat.</p></div>
+    <div><h3>Trust is a feature you can see</h3>
+      <p>Citations and "Why this answer" did more for credibility than any accuracy claim. People believe what they can check.</p></div>
+  </div>
+  <h3>What's next</h3>
+  <p>Connectors to the tools companies already use, answers that turn into reports, and shared chats, so knowledge found once is found for everyone.</p>
+</section>
