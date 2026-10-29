@@ -123,7 +123,7 @@ def header(current):
 def footer():
     return f"""<footer class="site-footer">
   <div class="in">
-    <span>{NAME}, Senior Product Designer and Product Owner. Porto, working remotely.</span>
+    <span>{NAME}, Senior UX Product Designer. Porto, working remotely.</span>
     <span class="links"><a href="mailto:{EMAIL}">{EMAIL}</a><a href="{LINKEDIN}" rel="noopener">LinkedIn</a></span>
   </div>
 </footer>
