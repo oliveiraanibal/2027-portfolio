@@ -75,7 +75,7 @@
         document.querySelectorAll('.card a').forEach(function (a) {
             var v = a.querySelector('video');
             if (!v) return;
-            function on() { v.currentTime = 0; v.playbackRate = 0.75; var p = v.play(); v.classList.add('playing'); if (p && p.catch) p.catch(function () {}); }
+            function on() { v.currentTime = 0; v.playbackRate = 0.5; var p = v.play(); v.classList.add('playing'); if (p && p.catch) p.catch(function () {}); }
             function off() { v.pause(); v.classList.remove('playing'); }
             a.addEventListener('mouseenter', on); a.addEventListener('focus', on);
             a.addEventListener('mouseleave', off); a.addEventListener('blur', off);
