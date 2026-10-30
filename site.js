@@ -81,4 +81,17 @@
             a.addEventListener('mouseleave', off); a.addEventListener('blur', off);
         });
     }
+    // Theme toggle: remembers the choice; otherwise follows the system setting.
+    var root = document.documentElement, tbtn = document.querySelector('.theme-toggle');
+    function syncTheme() {
+        var dark = root.getAttribute('data-theme') === 'dark';
+        if (tbtn) { tbtn.setAttribute('aria-label', dark ? 'Switch to light theme' : 'Switch to dark theme'); tbtn.setAttribute('aria-pressed', dark ? 'true' : 'false'); }
+    }
+    if (tbtn) tbtn.addEventListener('click', function () {
+        var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        root.setAttribute('data-theme', next);
+        try { localStorage.setItem('theme', next); } catch (e) {}
+        syncTheme();
+    });
+    syncTheme();
 })();
