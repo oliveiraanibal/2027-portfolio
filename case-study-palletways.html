@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Palletways · Case study · Aníbal Oliveira</title>
+    <meta name="description" content="Palletways: moving every shipper off a 15-year-old shipping portal before it was switched off. Product Owner on contract for 15 months; 97% of shippers and all volume migrated.">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Palletways · Aníbal Oliveira">
+    <meta property="og:description" content="Palletways: moving every shipper off a 15-year-old shipping portal before it was switched off. Product Owner on contract for 15 months; 97% of shippers and all volume migrated.">
+    <meta property="og:image" content="img/og.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="color-scheme" content="dark light">
+
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="alternate icon" href="favicon.ico">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="preload" href="fonts/fraunces.woff" as="font" type="font/woff" crossorigin>
+    <link rel="preload" href="fonts/hanken-grotesk.woff" as="font" type="font/woff" crossorigin>
+    <link rel="stylesheet" href="v4.css">
+
+    <!-- Runs before the page paints: marks that JavaScript works (so the
+         entrance animations may hide things first) and restores the saved theme. -->
+    <script>
+        (function () {
+            var root = document.documentElement;
+            root.classList.add('js');
+            try {
+                var saved = localStorage.getItem('v4-theme');
+                if (saved === 'light' || saved === 'dark') root.setAttribute('data-theme', saved);
+            } catch (e) { }
+        })();
+    </script>
+</head>
+
+<body>
+    <a class="skip" href="#main">Skip to content</a>
+
+    <header class="site-header">
+        <div class="wrap bar">
+            <a class="brand" href="index.html" aria-label="Aníbal Oliveira, home">Aníbal Oliveira</a>
+            <nav class="nav" aria-label="Main">
+                <a href="index.html#work">Work</a>
+                <a href="about.html">About</a>
+                <a href="#contact">Contact</a>
+            </nav>
+            <button class="theme-toggle" type="button" aria-label="Switch to light theme">
+                <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+                    <circle cx="12" cy="12" r="4" />
+                    <path d="M12 2.5v2.5M12 19v2.5M4.6 4.6l1.8 1.8M17.6 17.6l1.8 1.8M2.5 12H5M19 12h2.5M4.6 19.4l1.8-1.8M17.6 6.4l1.8-1.8" />
+                </svg>
+                <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M20 14.2A8 8 0 0 1 9.8 4a8 8 0 1 0 10.2 10.2z" />
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <main id="main">
+        <!-- Title -->
+        <section class="page-hero wrap">
+            <a class="back" href="index.html#work"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6" /></svg>All work</a>
+            <p class="eyebrow" data-reveal>Case study <span class="nb">· Palletways</span> <span class="nb">· Contract, 2024–2026</span></p>
+            <h1 class="headline" data-split>Palletways: every shipper off the legacy portal, <em>before</em> the switch-off.</h1>
+            <p class="lede" data-reveal style="--d:5">Palletways had to retire its 15-year-old shipping portal and APIs by a fixed date. I was the Product Owner on contract for the squad that moved customers across, and stayed 15 months, until the old platform was switched off.</p>
+        </section>
+
+        <div class="wrap">
+            <!-- The 60-second summary -->
+            <dl class="summary" data-reveal style="--d:7">
+                <div>
+                    <dt>Role</dt>
+                    <dd>Product Owner for customer migration, one of three squads, reporting to the programme's Head of Product. Design sparring partner for the squad's designer</dd>
+                </div>
+                <div>
+                    <dt>Team</dt>
+                    <dd>1 designer, 5 engineers, 1 QA and 1 business analyst, plus the onboarding team and account managers</dd>
+                </div>
+                <div>
+                    <dt>Duration</dt>
+                    <dd>15 months: 12 initial, extended by 3</dd>
+                </div>
+                <div class="is-outcome">
+                    <dt>Outcome</dt>
+                    <dd>97% of active shippers and all shipment volume on the new platform, with legacy switched off four weeks ahead of the deadline.</dd>
+                </div>
+            </dl>
+
+            
+
+            <section class="chapter">
+                <div class="chapter-label" data-reveal>
+                    <span class="no">01</span>
+                    <h2>Context</h2>
+                </div>
+                <div class="chapter-body">
+<div class="prose" data-reveal>
+    <p class="big">Every shipment starts as a booking. Smaller shippers book, print labels, order collections and track deliveries in a web portal. Larger ones connect their own systems directly, through APIs or EDI file exchange.</p>
+    <p>The portal and those interfaces ran on a platform built 15 years ago. It had to be retired by a fixed date, it couldn't support the services the business wanted to sell next, and every change took months. A new cloud platform was already being built.</p>
+    <p>The risk was in the move. A shipper who can't book or print a label on Monday can switch carrier by Tuesday, so customers had to move without losing a day of shipping. The integrated shippers were the smaller group, and they carried more than half of the volume.</p>
+</div>
+                </div>
+            </section>
+
+            <section class="chapter">
+                <div class="chapter-label" data-reveal>
+                    <span class="no">02</span>
+                    <h2>Problem</h2>
+                </div>
+                <div class="chapter-body">
+<div class="prose" data-reveal>
+    <p class="big">The new platform covered core booking only. Dozens of features shippers relied on were missing, and nobody knew which ones mattered or which shippers would be stuck without them.</p>
+</div>
+<div>
+<p class="label" data-reveal>Constraints</p>
+<ul class="cols">
+    <li data-reveal><h3>A fixed end date</h3><p>The legacy platform went away in month 15, whatever the state of the migration.</p></li>
+    <li data-reveal style="--d:1"><h3>Peak season</h3><p>No cutovers from mid-November to the end of December.</p></li>
+    <li data-reveal style="--d:2"><h3>A dependency</h3><p>The platform team owned the new core. My squad owned the migration only.</p></li>
+</ul>
+</div>
+                </div>
+            </section>
+
+            <section class="chapter">
+                <div class="chapter-label" data-reveal>
+                    <span class="no">03</span>
+                    <h2>My role and what I owned</h2>
+                </div>
+                <div class="chapter-body">
+<div class="prose" data-reveal>
+    <p class="big">I joined a running programme. The platform team had built core booking; my squad owned moving the customers across, and I owned what "done" meant for that.</p>
+    <ul class="dots">
+        <li><strong>Migration strategy, Product Goal and OKRs</strong>, agreed with the Head of Product and the steering committee.</li>
+        <li><strong>The wave plan</strong> and the exit criteria for each wave.</li>
+        <li><strong>The Product Backlog</strong> for migration tooling and parity gaps, and the dependency on the platform team's backlog.</li>
+        <li><strong>Discovery</strong>: legacy usage analytics, and interviews with 14 shippers, 6 account managers and the onboarding team.</li>
+        <li><strong>Measurement and governance</strong>: a weekly migration burn-up, a RAID log and the fallback plan.</li>
+    </ul>
+    <p>My design background did part of the discovery. I mapped the move as a service blueprint, from invitation to first booking, across the shipper, the portal, the onboarding team, account managers and support. It showed two teams planning to email the same shippers, and no one owning the first booking after the move.</p>
+    <p>The squad's designer owned the screens. I ran a weekly critique, reviewed flows before backlog refinement, and we tested the guided migration together with 8 shippers before the pilot.</p>
+</div>
+                </div>
+            </section>
+
+            <section class="chapter">
+                <div class="chapter-label" data-reveal>
+                    <span class="no">04</span>
+                    <h2>From goal to backlog</h2>
+                </div>
+                <div class="chapter-body">
+<div class="goal" data-reveal>
+    <p class="label">Product Goal</p>
+    <p>Every active shipper books on the new platform, with no loss of volume, before the legacy portal is switched off.</p>
+</div>
+<div>
+<p class="label" data-reveal>Objective: move every shipper before switch-off, without losing volume</p>
+<ul class="cols">
+    <li data-reveal><span class="tag">Key result 1</span><p>80% of active shippers on the new platform by month 12, and all of them by switch-off.</p></li>
+    <li data-reveal style="--d:1"><span class="tag">Key result 2</span><p>Fewer than 10 support tickets per 100 migrations from wave 2 onward.</p></li>
+    <li data-reveal style="--d:2"><span class="tag">Definition of migrated</span><p>A shipper counts as migrated when they book on the new platform, not when they have an account there.</p></li>
+</ul>
+</div>
+<div>
+<p class="label" data-reveal>Feature parity gap analysis: 64 gaps, rated by usage and by whether they block migration</p>
+<div class="tbl is-plain" data-reveal><table>
+<thead><tr><th scope="col">Decision</th><th scope="col">Gaps</th><th scope="col">Rule</th><th scope="col">Examples</th></tr></thead>
+<tbody>
+<tr><th scope="row">Must close before the wave</th><td>18</td><td>Most shippers use it, and it blocks migration</td><td>Customs documents, address book import</td></tr>
+<tr><th scope="row">Close for the segments that need them</th><td>21</td><td>Few shippers use it, but it blocks them</td><td>Dangerous goods booking</td></tr>
+<tr><th scope="row">Workaround and training</th><td>16</td><td>Widely used, doesn't block</td><td>Saved custom reports, bulk label reprint</td></tr>
+<tr><th scope="row">Retire, after asking the users</th><td>9</td><td>Few shippers, doesn't block</td><td>Fax confirmations, CSV export version 1</td></tr>
+</tbody></table></div>
+</div>
+<div class="prose" data-reveal>
+    <p>Legacy usage analytics made the triage possible: 31 of 212 features covered 95% of what shippers did. Only the 18 blocking gaps had to be closed before a wave could start.</p>
+</div>
+<div>
+<p class="label" data-reveal>Wave plan</p>
+<ul class="cols is-4">
+    <li data-reveal><span class="tag">Pilot</span><h3>20 shippers</h3><p>Hand-held, to prove the guided flow and the data copy.</p></li>
+    <li data-reveal style="--d:1"><span class="tag">Waves 1 and 2</span><h3>Portal shippers</h3><p>Guided self-service migration that copies accounts, users, address books and service settings.</p></li>
+    <li data-reveal style="--d:2"><span class="tag">Wave 3</span><h3>API and EDI shippers</h3><p>A compatibility layer and a sandbox, so existing API calls and EDI files keep working.</p></li>
+    <li data-reveal style="--d:3"><span class="tag">Switch-off</span><h3>Last movers</h3><p>Legacy portal and APIs off, then four weeks of hypercare.</p></li>
+</ul>
+</div>
+<div class="prose" data-reveal>
+    <p>A wave closed on its exit criteria: support tickets, failed bookings and booking volume per shipper. Every shipper could fall back to legacy for 14 days after moving, and account managers called any shipper whose bookings dropped.</p>
+</div>
+<article class="story" data-reveal>
+    <p class="label">Sample backlog item</p>
+    <h3>Keep existing API calls working after migration</h3>
+    <p class="as">As the IT lead at an integrated shipper, I want our existing booking and label API calls to keep working after we move, so that we can migrate without an unplanned development project.</p>
+    <p class="label">Acceptance criteria</p>
+    <ul class="dots">
+        <li>Given a legacy SOAP booking request, when it reaches the compatibility layer, then it creates the same shipment on the new platform and returns a response in the legacy format.</li>
+        <li>Given a field the new platform doesn't support, then the request is rejected with a clear error and logged for the migration squad.</li>
+        <li>Sandbox credentials are issued automatically when a shipper is added to wave 3.</li>
+    </ul>
+    <p class="foot">Must · 13 points, split into 3 stories · Sprint 11 · Serves key result 1</p>
+</article>
+                </div>
+            </section>
+
+            <section class="chapter">
+                <div class="chapter-label" data-reveal>
+                    <span class="no">05</span>
+                    <h2>Key decisions and trade-offs</h2>
+                </div>
+                <div class="chapter-body">
+<article class="decision">
+    <h3 data-reveal><span>Decision 1</span>Small shippers first, large ones last</h3>
+    <p data-reveal>Small portal-only shippers carried little revenue risk and taught us the flow. Large integrated shippers wouldn't change anything before peak season anyway.</p>
+    <div class="cols is-2">
+        <div data-reveal><p class="label">Chosen</p><p>Waves ordered by integration type, volume and risk: portal shippers before the peak freeze, API and EDI shippers after it.</p></div>
+        <div data-reveal style="--d:1"><p class="label">Trade-off</p><p>More than half of the volume moved in the last three months before switch-off, which left little slack.</p></div>
+    </div>
+</article>
+<article class="decision">
+    <h3 data-reveal><span>Decision 2</span>Don't rebuild every legacy feature</h3>
+    <p data-reveal>Feature parity was the default expectation. The usage data said otherwise.</p>
+    <div class="cols">
+        <div data-reveal><p class="label">Chosen</p><p>Close the 18 blocking gaps before a wave and 21 more for the segments that needed them. Cover 16 with a workaround and training.</p></div>
+        <div data-reveal style="--d:1"><p class="label">Rejected</p><p>Full parity. We retired 9 gaps, after talking to the shippers who used them.</p></div>
+        <div data-reveal style="--d:2"><p class="label">Trade-off</p><p>A small group of shippers needed a workaround and a call from their account manager.</p></div>
+    </div>
+</article>
+<article class="decision">
+    <h3 data-reveal><span>Decision 3</span>A compatibility layer instead of forced API rewrites</h3>
+    <p data-reveal>Integrated shippers kept their existing calls. The layer takes a legacy SOAP request, creates the shipment through the new platform's REST API and answers in the legacy format.</p>
+    <div class="cols">
+        <div data-reveal><p class="label">Chosen</p><p>A temporary compatibility layer, with a sandbox opened to integrated shippers ahead of their cutover.</p></div>
+        <div data-reveal style="--d:1"><p class="label">Rejected</p><p>Asking every integrated shipper to rebuild their integration. It would have pushed the migration past the end date.</p></div>
+        <div data-reveal style="--d:2"><p class="label">Trade-off</p><p>A temporary layer that the platform team now has to maintain and retire.</p></div>
+    </div>
+</article>
+<article class="decision">
+    <h3 data-reveal><span>Decision 4</span>Pause wave 1 and fix the flow</h3>
+    <p data-reveal>The first 400 self-service migrations produced 31 support tickets per 100, mostly about label printer set-up and renamed features. We paused invitations for two weeks. I paired with the designer on a set-up checklist with a test label and a guide mapping old terms to new ones, and wrote the content brief so that one email and banner sequence replaced three overlapping ones: what changes, what stays, and the date.</p>
+    <div class="cols">
+        <div data-reveal><p class="label">Chosen</p><p>Stop the wave, redesign steps 3 and 4 of the journey, then resume.</p></div>
+        <div data-reveal style="--d:1"><p class="label">Trade-off</p><p>Two weeks without invitations, on a timeline with a fixed end.</p></div>
+        <div data-reveal style="--d:2"><p class="label">Result</p><p>Wave 2 came in at 9 tickets per 100, under the key result of 10.</p></div>
+    </div>
+<div>
+<p class="label" data-reveal>The shipper migration journey</p>
+<div class="tbl is-plain" data-reveal><table>
+<thead><tr><th scope="col">Step</th><th scope="col">Shipper does</th><th scope="col">Portal shows</th><th scope="col">People behind it</th></tr></thead>
+<tbody>
+<tr><th scope="row">1 · Invite</th><td>Gets an email and a portal banner</td><td>The date, what changes, what stays</td><td>Account managers call the largest accounts</td></tr>
+<tr><th scope="row">2 · Preview</th><td>Sees their own data on the new platform</td><td>Accounts, addresses and services copied</td><td>The onboarding team checks the copy</td></tr>
+<tr><th scope="row">3 · Set up<small>Redesigned after wave 1</small></th><td>Tests the label printer, invites users</td><td>Set-up checklist with a test label</td><td>Onboarding help by chat and phone</td></tr>
+<tr><th scope="row">4 · First booking<small>Redesigned after wave 1</small></th><td>Books a real shipment</td><td>Old-to-new term guide</td><td>Support watches failed bookings</td></tr>
+<tr><th scope="row">5 · Confirmed</th><td>14 days with no return to legacy</td><td>Legacy account turns read-only</td><td>A follow-up call if volume drops</td></tr>
+</tbody></table></div>
+</div>
+</article>
+                </div>
+            </section>
+
+            <section class="chapter">
+                <div class="chapter-label" data-reveal>
+                    <span class="no">06</span>
+                    <h2>Outcome</h2>
+                </div>
+                <div class="chapter-body">
+<ul class="cols">
+    <li data-reveal><span class="num">97%</span><p>of active shippers on the new platform at switch-off. The last 3%, occasional shippers, now book through customer service.</p></li>
+    <li data-reveal style="--d:1"><span class="num">100%</span><p>of shipment volume on the new platform. Legacy was switched off in month 14, four weeks ahead of the deadline.</p></li>
+    <li data-reveal style="--d:2"><span class="num">31 → 9</span><p>support tickets per 100 migrations, from wave 1 to wave 2. The key result was fewer than 10.</p></li>
+</ul>
+<div class="prose" data-reveal>
+    <p>One checkpoint was missed on the way: at month 12, 78% of shippers had moved, against a target of 80%. Small portal shippers moved first, so the share of shippers ran ahead of the share of volume until the integrated shippers cut over after peak season.</p>
+    <p>The set-up checklist was added to the platform team's design system and is now reused for onboarding new customers.</p>
+    <p><strong>Close-out.</strong> Four weeks of hypercare, with failed bookings and tickets reviewed daily, then back to normal support. The compatibility layer moved into the platform team's backlog, with usage per shipper and a retirement date. The programme closed with a final report and a retrospective with the steering committee.</p>
+</div>
+                </div>
+            </section>
+
+            <section class="chapter">
+                <div class="chapter-label" data-reveal>
+                    <span class="no">07</span>
+                    <h2>What I'd do next</h2>
+                </div>
+                <div class="chapter-body">
+<div class="prose" data-reveal>
+    <p class="big">Run a second, unassisted pilot before the first wave.</p>
+    <p>The pilot was too well supported to be a fair test. Twenty hand-held shippers didn't show what 400 self-service ones would struggle with.</p>
+</div>
+                </div>
+            </section>
+
+            <nav class="pager" aria-label="More case studies">
+                <a href="case-study-bowker.html"><span>Previous</span><strong>Bowker Transport</strong></a>
+                <a href="case-study-kb.html"><span>Next</span><strong>KB RetroTool</strong></a>
+            </nav>
+        </div>
+
+        <section id="contact" class="contact wrap">
+            <h2 data-reveal>Let's talk about your product.</h2>
+            <p data-reveal>I'm based in Porto and work remotely, hybrid or on site.</p>
+            <p class="contact-links" data-reveal>
+                <a class="mail" href="mailto:oliveira.anibal@gmail.com">oliveira.anibal@gmail.com</a>
+                <a class="link" href="https://www.linkedin.com/in/oliveiraanibal/" rel="noopener">LinkedIn</a>
+            </p>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="wrap bar">
+            <span>© 2026 Aníbal Oliveira</span>
+            <span class="footer-links">
+                <a href="about.html">About</a>
+                <a href="https://www.linkedin.com/in/oliveiraanibal/" rel="noopener">LinkedIn</a>
+                <a href="mailto:oliveira.anibal@gmail.com">Email</a>
+            </span>
+        </div>
+    </footer>
+
+    <script src="v4.js" defer></script>
+</body>
+</html>

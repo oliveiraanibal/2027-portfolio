@@ -1,244 +1,278 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" data-theme="dark">
+
 <head>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-BQ8R2S5PRK"></script>
-<script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-BQ8R2S5PRK');
-</script>
-<script>try{var t=localStorage.getItem('theme');if(!t&&matchMedia('(prefers-color-scheme: dark)').matches)t='dark';if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>lichtMONITOR | Aníbal Oliveira</title>
-<meta name="description" content="Lead product designer of Tridonic&#x27;s web app for commissioning and monitoring smart lighting from a floor plan.">
-<meta name="author" content="Aníbal Oliveira">
-<link rel="canonical" href="https://oliveiraanibal.github.io/2027-portfolio/case-study-lichtmonitor.html">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="Aníbal Oliveira">
-<meta property="og:title" content="lichtMONITOR | Aníbal Oliveira">
-<meta property="og:description" content="Lead product designer of Tridonic&#x27;s web app for commissioning and monitoring smart lighting from a floor plan.">
-<meta property="og:url" content="https://oliveiraanibal.github.io/2027-portfolio/case-study-lichtmonitor.html">
-<meta property="og:image" content="https://oliveiraanibal.github.io/2027-portfolio/imgs/lm1.png">
-<meta name="twitter:card" content="summary_large_image">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=SUSE:wght@200..700&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,400..600;1,8..60,400&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="site.css">
-<link rel="icon" href="favicon.ico" sizes="32x32">
-<link rel="icon" type="image/svg+xml" href="favicon.svg">
-<link rel="icon" type="image/png" href="favicon.png">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex, nofollow">
+    <title>lichtMONITOR · Case study · Aníbal Oliveira</title>
+    <meta name="description" content="lichtMONITOR by Tridonic: commissioning and monitoring smart lighting from a floor plan. Product design lead; 15 to 25% lower energy and maintenance costs.">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="lichtMONITOR · Aníbal Oliveira">
+    <meta property="og:description" content="lichtMONITOR by Tridonic: commissioning and monitoring smart lighting from a floor plan. Product design lead; 15 to 25% lower energy and maintenance costs.">
+    <meta property="og:image" content="img/og.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="color-scheme" content="dark light">
 
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="alternate icon" href="favicon.ico">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="preload" href="fonts/fraunces.woff" as="font" type="font/woff" crossorigin>
+    <link rel="preload" href="fonts/hanken-grotesk.woff" as="font" type="font/woff" crossorigin>
+    <link rel="stylesheet" href="v4.css">
+
+    <!-- Runs before the page paints: marks that JavaScript works (so the
+         entrance animations may hide things first) and restores the saved theme. -->
+    <script>
+        (function () {
+            var root = document.documentElement;
+            root.classList.add('js');
+            try {
+                var saved = localStorage.getItem('v4-theme');
+                if (saved === 'light' || saved === 'dark') root.setAttribute('data-theme', saved);
+            } catch (e) { }
+        })();
+    </script>
 </head>
+
 <body>
-<a class="skip" href="#main">Skip to content</a>
-<header class="site-header">
-  <div class="in">
-    <a class="brand" href="index.html">Aníbal Oliveira</a>
-    <div class="tools">
-    <nav class="site-nav" aria-label="Main">
-      <a href="index.html#work" aria-current="page">Work</a>
-      <a href="about.html">About</a>
-      <a class="opt" href="mailto:oliveira.anibal@gmail.com">Email</a>
-    </nav>
-    <button class="theme-toggle" type="button" aria-label="Switch to dark theme" title="Switch theme"><svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg><svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
-    </div>
-  </div>
-</header>
-<div class="case">
-  <aside class="rail">
-    <nav aria-label="On this page">
-      <a class="back" href="index.html#work">All work</a>
-      <ol>
-        <li><a href="#context">Context and role</a></li>
-        <li><a href="#problem">Problem</a></li>
-        <li><a href="#insights">Research and insights</a></li>
-        <li><a href="#decisions">Design decisions</a></li>
-        <li><a href="#ia">Information architecture</a></li>
-        <li><a href="#results">Results</a></li>
-        <li><a href="#lessons">Lessons</a></li>
-      </ol>
-    </nav>
-  </aside>
-  <main id="main" class="case-main">
-<header class="case-hero">
-  <h1>lichtMONITOR</h1>
-  <p class="lead">Commissioning and monitoring smart lighting from a floor plan.</p>
-  <hr class="lumen">
-  <dl class="facts">
-    <div><dt>Company</dt><dd>Tridonic, Zumtobel Group</dd></div>
-    <div><dt>When</dt><dd>2022</dd></div>
-    <div><dt>My role</dt><dd>Lead product designer</dd></div>
-    <div><dt>Users</dt><dd>Installers on site, facility managers remotely</dd></div>
-    <div><dt>Product</dt><dd>B2B IoT web app, codename easyGO</dd></div>
-  </dl>
-  <figure class="hero-media">
-    <div class="frame">
-      <video controls muted autoplay loop playsinline preload="metadata" poster="imgs/lm1.png">
-        <source src="imgs/lm3.mp4" type="video/mp4">
-      </video>
-    </div>
-    <figcaption><b>From an empty plan to a monitored building.</b> Upload the floor plan, place and group devices, connect controllers, locate a device, and follow errors floor by floor. Two minutes, no sound.</figcaption>
-  </figure>
-</header>
+    <a class="skip" href="#main">Skip to content</a>
 
-<section id="context" data-nav="Context and role">
-  <h2>Context and role</h2>
-  <p>Tridonic makes the drivers, sensors and controllers inside lighting installations. In 2022 it started a software product, codename easyGO and later lichtMONITOR, to turn those installations into a source of data for running buildings. A lichtMONITOR server at the edge collects data from DALI-2 drivers and sensors and sends it to the cloud. The first requirement was a graphical overview of the site, the "GO" in easyGO, for commissioning, monitoring and maintenance.</p>
-  <p>I led the product design, working with the product owner and engineers.</p>
-  <div class="contrib">
-    <div class="donut"><script type="application/json">[
-      {"percentage": 50, "legend": "Design", "color": "#2348d6"},
-      {"percentage": 35, "legend": "Research", "color": "#2a9d8f"},
-      {"percentage": 15, "legend": "Product management", "color": "#f5b841"}]</script></div>
-    <ul>
-      <li>I led the research: interviews, contextual inquiries and usability tests.</li>
-      <li>I mapped the commissioning workflow and defined the information architecture.</li>
-      <li>I designed the product, from wireframes and prototypes to high-fidelity screens.</li>
-      <li>I built the screens on the <a href="case-study-tds.html">Tridonic Design System</a>.</li>
-    </ul>
-  </div>
-</section>
+    <header class="site-header">
+        <div class="wrap bar">
+            <a class="brand" href="index.html" aria-label="Aníbal Oliveira, home">Aníbal Oliveira</a>
+            <nav class="nav" aria-label="Main">
+                <a href="index.html#work">Work</a>
+                <a href="about.html">About</a>
+                <a href="#contact">Contact</a>
+            </nav>
+            <button class="theme-toggle" type="button" aria-label="Switch to light theme">
+                <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+                    <circle cx="12" cy="12" r="4" />
+                    <path d="M12 2.5v2.5M12 19v2.5M4.6 4.6l1.8 1.8M17.6 17.6l1.8 1.8M2.5 12H5M19 12h2.5M4.6 19.4l1.8-1.8M17.6 6.4l1.8-1.8" />
+                </svg>
+                <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M20 14.2A8 8 0 0 1 9.8 4a8 8 0 1 0 10.2 10.2z" />
+                </svg>
+            </button>
+        </div>
+    </header>
 
-<section id="problem" data-nav="Problem">
-  <h2>The problem: lighting you can't see</h2>
-  <p>A large building has thousands of luminaires and sensors, but the systems that run them list devices by address, not by place. Setting up an installation meant matching addresses to physical fittings by hand. Once running, faults were found by walking the building or by waiting for a lamp to fail, and nobody had one view of the whole system's health. That made maintenance reactive and expensive.</p>
-  <p>Two kinds of people do this work, in two places. Installers commission devices on site, on a mobile device. Facility managers and administrators prepare, group and monitor from a computer, remotely.</p>
-  <figure>
-    <a class="shot pad zoom" href="imgs/lm-flowchart.png"><img src="imgs/lm-flowchart.png" alt="Commissioning workflow in five lanes: provisioning, preparation, localisation, logical grouping and scene configuration" loading="lazy"></a>
-    <figcaption><b>The commissioning workflow I mapped.</b> Five stages that alternate between site and office: provisioning (on site), preparation (remote), localisation (on site), grouping and scenes (remote). The product had to support the hand-over between them. Select to open full size.</figcaption>
-  </figure>
-</section>
+    <main id="main">
+        <!-- Title -->
+        <section class="page-hero wrap">
+            <a class="back" href="index.html#work"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6" /></svg>All work</a>
+            <p class="eyebrow" data-reveal>Case study <span class="nb">· Tridonic, Zumtobel Group</span> <span class="nb">· 2022</span></p>
+            <h1 class="headline" data-split>lichtMONITOR: run a building's lighting from its <em>floor plan</em>.</h1>
+            <p class="lede" data-reveal style="--d:5">An IoT product for commissioning and monitoring smart lighting in connected buildings. I led its product design, from on-site research to the interface.</p>
+        </section>
 
-<section id="insights" data-nav="Research and insights">
-  <h2>What research changed</h2>
-  <p>I interviewed facility managers and installers, observed commissioning on site, and tested prototypes with them. A proto-persona, Alex, kept the facility manager's goals in view.</p>
-  <ul class="findings">
-    <li><p class="saw"><span class="k">We saw</span>Devices are known by address, but people think in floors and rooms.</p>
-        <p class="did"><span class="k">So I designed</span>Everything around the floor plan: upload the drawing, place devices on it, group them into rooms.</p></li>
-    <li><p class="saw"><span class="k">We saw</span>On site, most time went into finding which fitting is which.</p>
-        <p class="did"><span class="k">So I designed</span>Locate on press: tap a device on the plan and the real one responds.</p></li>
-    <li><p class="saw"><span class="k">We saw</span>Raw device data didn't tell anyone what to do.</p>
-        <p class="did"><span class="k">So I designed</span>Errors and alerts counted in the top bar, error badges per floor, and an incident list that links back to the plan.</p></li>
-    <li><p class="saw"><span class="k">We saw</span>Setup moves between site and office several times.</p>
-        <p class="did"><span class="k">So I designed</span>One shared plan that autosaves, so work done on site is waiting at the desk and the reverse.</p></li>
-  </ul>
-  <figure class="narrow">
-    <div class="shot"><img src="imgs/lm-persona.png" alt="Proto-persona: Alex, the proactive facility manager" loading="lazy"></div>
-    <figcaption><b>Proto-persona.</b> Alex, a facility manager on a large campus, built from interviews. The photo is illustrative.</figcaption>
-  </figure>
-  <h3>Assumptions, and what the design did with them</h3>
-  <div class="table-wrap">
-    <table>
-      <thead><tr><th>We assumed</th><th>So the design</th></tr></thead>
-      <tbody>
-        <tr><td>Facility managers value uptime and cost savings most.</td><td>Opens the dashboard on incidents, before emergency lighting and energy.</td></tr>
-        <tr><td>Visual overviews beat data tables for quick decisions.</td><td>Makes the floor plan the home screen; tables only list incidents.</td></tr>
-        <tr><td>Automatic alerts are essential for maintenance.</td><td>Keeps error and alert counts visible on every screen.</td></tr>
-        <tr><td>Remote access is a must.</td><td>Runs the preparation, grouping and monitoring steps entirely remotely.</td></tr>
-      </tbody>
-    </table>
-  </div>
-</section>
+        <div class="wrap">
+            <!-- The 60-second summary -->
+            <dl class="summary" data-reveal style="--d:7">
+                <div>
+                    <dt>Role</dt>
+                    <dd>Product design lead</dd>
+                </div>
+                <div>
+                    <dt>Team</dt>
+                    <dd>A product owner who set scope and priorities, and engineers for the edge server, controllers and cloud</dd>
+                </div>
+                <div>
+                    <dt>Duration</dt>
+                    <dd>2022, codename easyGO</dd>
+                </div>
+                <div class="is-outcome">
+                    <dt>Outcome</dt>
+                    <dd>15–25% lower energy and maintenance costs in connected buildings, and 30% less time on manual checks.</dd>
+                </div>
+            </dl>
 
-<section id="decisions" data-nav="Design decisions">
-  <h2>Design decisions</h2>
+            <figure class="shot shot-wide" data-reveal>
+                <span class="frame">
+                    <video controls muted playsinline preload="none" poster="img/lichtmonitor.jpg" width="640" height="432">
+                        <source src="img/lichtmonitor-demo.mp4" type="video/mp4">
+                    </video>
+                </span>
+                <figcaption>From an empty plan to a monitored building: upload the floor plan, place and group devices, locate one, and follow errors floor by floor. Two minutes, no sound.</figcaption>
+            </figure>
 
-  <article class="decision">
-    <h3>Start from the building</h3>
-    <p>A new installation starts with a plan, not a device list. The user uploads the architect's drawing, then fades and desaturates it until it is a quiet background, so the devices placed on top stand out.</p>
-    <p class="tradeoff"><b>Trade-off:</b> one more setup step before anything is useful. Without the plan, every later step goes back to addresses.</p>
-    <div class="trio">
-      <figure><div class="shot"><img src="imgs/lm-empty.jpg" alt="Empty state with Create a new plan and Load a plan" loading="lazy"></div>
-        <figcaption><b>Empty state.</b> Two clear ways in.</figcaption></figure>
-      <figure><div class="shot"><img src="imgs/lm-floor-raw.jpg" alt="Uploaded floor plan at full opacity with image settings" loading="lazy"></div>
-        <figcaption><b>Drawing uploaded.</b> Too busy to place devices on.</figcaption></figure>
-      <figure><div class="shot"><img src="imgs/lm-floor-faded.jpg" alt="Floor plan faded to a light background" loading="lazy"></div>
-        <figcaption><b>Faded.</b> Opacity and saturation turned down.</figcaption></figure>
-    </div>
-  </article>
-
-  <article class="decision">
-    <h3>Place devices, then group them by room</h3>
-    <p>Devices are placed as typed placeholders (luminaires, sensors, push buttons, blinds, weather stations, emergency lights) and later matched to the real ones a controller finds. Groups get a name and a colour, so a room reads as a room at a glance.</p>
-    <div class="duo">
-      <figure><div class="shot"><img src="imgs/lm-devices.jpg" alt="Placeholder menu listing device types" loading="lazy"></div>
-        <figcaption><b>Placeholders.</b> Eleven device types, each with its own icon.</figcaption></figure>
-      <figure><div class="shot"><img src="imgs/lm-groups.jpg" alt="Devices on the plan in coloured groups for offices, kitchen, hall and garden" loading="lazy"></div>
-        <figcaption><b>Groups.</b> Colour and name per room.</figcaption></figure>
-    </div>
-  </article>
-
-  <article class="decision">
-    <h3>Find a device by pressing it</h3>
-    <p>With "Locate on press", tapping a device on the plan makes the real one identify itself: luminaires blink, sensors beep, blinds roll down. The installer confirms the match in seconds instead of reading addresses off a ladder.</p>
-    <figure><div class="shot"><img src="imgs/lm-locate.jpg" alt="Locate on press active, with instructions: luminaires blink, sensors beep, blinds roll down" loading="lazy"></div>
-      <figcaption><b>Locate on press.</b> The instruction appears when the mode is on.</figcaption></figure>
-  </article>
-
-  <article class="decision">
-    <h3>Show faults where they are</h3>
-    <p>The top bar always shows controllers connected, the last sync, and counts of errors and alerts. The floor list carries an error badge per floor. The dashboard lists incidents, each with "See in floorplan", so a fault leads straight to its place in the building.</p>
-    <div class="duo">
-      <figure><div class="shot"><img src="imgs/lm-floors.jpg" alt="Floor plan with the floor list showing error badges per floor and the top bar with 7 errors and 2 alerts" loading="lazy"></div>
-        <figcaption><b>On the plan.</b> Five errors on the ground floor, one on the first.</figcaption></figure>
-      <figure><div class="shot"><img src="imgs/lm-dashboard.jpg" alt="Dashboard with incidents, devices with errors and alerts, and See in floorplan links" loading="lazy"></div>
-        <figcaption><b>Dashboard.</b> Incidents first, each linked back to the plan.</figcaption></figure>
-    </div>
-  </article>
-</section>
-
-<section id="ia" data-nav="Information architecture">
-  <h2>From sticky notes to a two-part product</h2>
-  <p>I sorted the features and content with the team on the wall, then reduced the navigation to two modes: the plan, where people set up and find things, and the dashboard, where they follow what is happening. Along the way, "Blueprint" was renamed "Floorplan".</p>
-  <figure>
-    <div class="shot"><img src="imgs/lm-ia2.png" alt="Sticky notes on a glass wall from an affinity mapping session" loading="lazy"></div>
-    <figcaption><b>Affinity mapping.</b> Features and content grouped on the glass wall, the start of the sitemap.</figcaption>
-  </figure>
-  <figure>
-    <div class="shot pad"><img src="imgs/lm-ia3.png" alt="Low-fidelity navigation with Blueprint and Dashboard and menus for plan, settings, easyGO and user" loading="lazy"></div>
-    <div class="shot" style="margin-top:.75rem"><img src="imgs/lm-nav-final.jpg" alt="Final navigation with Floorplan and Dashboard, autosave, and the status bar" loading="lazy"></div>
-    <figcaption><b>Navigation, low fidelity and built.</b> The same two modes and menus; the fault bar became the status bar with errors and alerts.</figcaption>
-  </figure>
-  <div class="crosslink"><p>lichtMONITOR was built with the <a href="case-study-tds.html">Tridonic Design System</a>, which made its development 25–35% faster.</p></div>
-</section>
-
-<section id="results" data-nav="Results">
-  <h2>Results</h2>
-  <ul class="results">
-    <li><span class="n">30%</span><span class="w">less time on manual checks and troubleshooting</span><span class="b">Faults found on the plan instead of on foot.</span></li>
-    <li><span class="n">15–25%</span><span class="w">lower lighting maintenance costs</span><span class="b">From reactive to planned maintenance.</span></li>
-    <li><span class="n">10–15%</span><span class="w">additional energy savings</span><span class="b">Mostly from lighting control, with the product making it visible.</span></li>
-  </ul>
-  <p class="note">Product-level figures as reported for installations using the system, not design-only results.</p>
-</section>
-
-<section id="lessons" data-nav="Lessons">
-  <h2>Lessons</h2>
-  <div class="lessons">
-    <div><h3>Put data where people already think</h3>
-      <p>Moving from device addresses to rooms and floors did more for usability than any chart. The floor plan was the interface.</p></div>
-    <div><h3>Design the hand-over, not only the screens</h3>
-      <p>Commissioning moves between site and office. Mapping who does what, where, showed that the shared plan mattered more than any single screen.</p></div>
-  </div>
-  <h3>What's next</h3>
-  <p>Predictive maintenance, warning before a fitting fails, and deeper integration with building management systems beyond lighting.</p>
-</section>
-
-    <div class="case-end">
-      <p class="hire">Want the longer version of this story? Email me at <a href="mailto:oliveira.anibal@gmail.com">oliveira.anibal@gmail.com</a> or find me on <a href="https://www.linkedin.com/in/oliveiraanibal/" rel="noopener">LinkedIn</a>.</p>
-      <nav class="pager" aria-label="More case studies"><a class="prev" href="case-study-shell.html"><span>Previous</span><strong>Shell Mobility offers</strong></a><a class="next" href="case-study-tds.html"><span>Next</span><strong>Tridonic Design System</strong></a></nav>
-    </div>
-  </main>
+            <section class="chapter">
+                <div class="chapter-label" data-reveal>
+                    <span class="no">01</span>
+                    <h2>Context</h2>
+                </div>
+                <div class="chapter-body">
+<div class="prose" data-reveal>
+    <p class="big">Tridonic makes the drivers, sensors and controllers inside lighting installations. In 2022 it started easyGO, later lichtMONITOR, to turn those installations into a source of data for running buildings.</p>
+    <p>A server at the edge collects data from DALI-2 drivers and sensors and sends it to the cloud. The first requirement was a graphical overview of the site: the "GO" in easyGO.</p>
 </div>
-<footer class="site-footer">
-  <div class="in">
-    <span>Aníbal Oliveira, Senior UX Product Designer. Porto, working remotely.</span>
-    <span class="links"><a href="mailto:oliveira.anibal@gmail.com">oliveira.anibal@gmail.com</a><a href="https://www.linkedin.com/in/oliveiraanibal/" rel="noopener">LinkedIn</a></span>
-  </div>
-</footer>
-<script src="site.js" defer></script>
+                </div>
+            </section>
+
+            <section class="chapter">
+                <div class="chapter-label" data-reveal>
+                    <span class="no">02</span>
+                    <h2>Problem</h2>
+                </div>
+                <div class="chapter-body">
+<div class="prose" data-reveal>
+    <p class="big">Buildings have thousands of luminaires and sensors, listed by address, not by place. Set-up meant matching addresses by hand, and faults were found by walking the building.</p>
+    <p>Once an installation was running, nobody had one view of its health. Maintenance was reactive: a lamp failed, someone complained, someone walked the floor.</p>
+    <p>Two kinds of people do this work in two places. Installers commission devices on site, on a mobile device. Facility managers prepare, group and monitor from a computer, remotely. The product had to carry work across those hand-overs.</p>
+</div>
+<figure class="shot" data-reveal>
+                                <span class="frame">
+                                    <picture>
+                                        <source srcset="img/lichtmonitor-flow.webp" type="image/webp">
+                                        <img src="img/lichtmonitor-flow.jpg" width="800" height="500" alt="Flowchart of the commissioning workflow moving between site and remote work" loading="lazy" decoding="async">
+                                    </picture>
+                                </span>
+                                <figcaption>The commissioning workflow: provisioning on site, preparation remotely, localisation on site, grouping and scenes remotely.</figcaption>
+                            </figure>
+                </div>
+            </section>
+
+            <section class="chapter">
+                <div class="chapter-label" data-reveal>
+                    <span class="no">03</span>
+                    <h2>My role and what I owned</h2>
+                </div>
+                <div class="chapter-body">
+<div class="prose" data-reveal>
+    <p class="big">I led the product design and connected user needs, business goals and what was technically feasible. The product owner set scope and priorities; I brought the research that informed them.</p>
+    <ul class="dots">
+        <li><strong>Research</strong>: interviews, contextual inquiry on site and usability tests.</li>
+        <li><strong>The commissioning workflow</strong> and the information architecture.</li>
+        <li><strong>Wireframes, prototypes and high-fidelity screens</strong>, built on the <a href="case-study-tds.html">Tridonic Design System</a>, which I also led.</li>
+    </ul>
+</div>
+                </div>
+            </section>
+
+            <section class="chapter">
+                <div class="chapter-label" data-reveal>
+                    <span class="no">04</span>
+                    <h2>Key decisions and trade-offs</h2>
+                </div>
+                <div class="chapter-body">
+<article class="decision">
+    <h3 data-reveal><span>Decision 1</span>Start from the building, not the device list</h3>
+    <p data-reveal>Devices are known by address, but people think in floors and rooms. A new installation starts with the architect's drawing, which is uploaded, then faded and desaturated into a quiet background so devices stand out.</p>
+    <div class="cols">
+        <div data-reveal><p class="label">Chosen</p><p>Everything happens on the floor plan.</p></div>
+        <div data-reveal style="--d:1"><p class="label">Rejected</p><p>Working from the device list. Every later step would go back to addresses.</p></div>
+        <div data-reveal style="--d:2"><p class="label">Trade-off</p><p>One more set-up step before anything is useful.</p></div>
+    </div>
+<figure class="shot" data-reveal>
+                                <span class="frame">
+                                    <picture>
+                                        <source srcset="img/lichtmonitor-plan.webp" type="image/webp">
+                                        <img src="img/lichtmonitor-plan.jpg" width="640" height="432" alt="Uploaded floor plan faded into a quiet background" loading="lazy" decoding="async">
+                                    </picture>
+                                </span>
+                                <figcaption>The uploaded plan, faded so devices stand out.</figcaption>
+                            </figure>
+</article>
+<article class="decision">
+    <h3 data-reveal><span>Decision 2</span>Place, group, then find by pressing</h3>
+    <p data-reveal>On site, most time went into finding which fitting is which. Devices are placed as typed placeholders, then matched to what a controller finds. "Locate on press" makes the real device identify itself: luminaires blink, sensors beep, blinds roll down.</p>
+    <div class="cols is-2">
+        <div data-reveal><p class="label">Chosen</p><p>A plan that can be prepared remotely before anyone is on site, and one shared plan that autosaves across site and office.</p></div>
+        <div data-reveal style="--d:1"><p class="label">Trade-off</p><p>An extra matching step once controllers are connected.</p></div>
+    </div>
+<figure class="shot" data-reveal>
+                                <span class="frame">
+                                    <picture>
+                                        <source srcset="img/lichtmonitor-locate.webp" type="image/webp">
+                                        <img src="img/lichtmonitor-locate.jpg" width="640" height="432" alt="Floor plan with a device selected and the Locate on press action" loading="lazy" decoding="async">
+                                    </picture>
+                                </span>
+                                <figcaption>Locate on press: the real device responds.</figcaption>
+                            </figure>
+</article>
+<article class="decision">
+    <h3 data-reveal><span>Decision 3</span>Show faults where they are</h3>
+    <p data-reveal>Raw device data didn't tell anyone what to do. The top bar always shows connected controllers, the last sync, errors and alerts. Floors carry error badges, and every incident links back to its place on the plan.</p>
+    <div class="cols">
+        <div data-reveal><p class="label">Chosen</p><p>Persistent counters and an incident list tied to the plan.</p></div>
+        <div data-reveal style="--d:1"><p class="label">Rejected</p><p>A clean header with status one click away. For maintenance, knowing that something is wrong matters more.</p></div>
+        <div data-reveal style="--d:2"><p class="label">Trade-off</p><p>Counters take space on every screen.</p></div>
+    </div>
+<figure class="shot" data-reveal>
+                                <span class="frame">
+                                    <picture>
+                                        <source srcset="img/lichtmonitor-dashboard.webp" type="image/webp">
+                                        <img src="img/lichtmonitor-dashboard.jpg" width="640" height="432" alt="Dashboard listing incidents first, each linked to the floor plan" loading="lazy" decoding="async">
+                                    </picture>
+                                </span>
+                                <figcaption>The dashboard: incidents first, linked to the plan.</figcaption>
+                            </figure>
+</article>
+                </div>
+            </section>
+
+            <section class="chapter">
+                <div class="chapter-label" data-reveal>
+                    <span class="no">05</span>
+                    <h2>Outcome</h2>
+                </div>
+                <div class="chapter-body">
+<ul class="cols">
+    <li data-reveal><span class="num">15–25%</span><p>lower energy and maintenance costs, moving from reactive to planned maintenance.</p></li>
+    <li data-reveal style="--d:1"><span class="num">30%</span><p>less time on manual checks and troubleshooting: faults found on the plan, not on foot.</p></li>
+    <li data-reveal style="--d:2"><span class="num">25–35%</span><p>faster development, by building on the Tridonic Design System.</p></li>
+</ul>
+<div class="prose" data-reveal>
+    <p>Product-level figures, as reported for installations using the system.</p>
+</div>
+                </div>
+            </section>
+
+            <section class="chapter">
+                <div class="chapter-label" data-reveal>
+                    <span class="no">06</span>
+                    <h2>What I'd do next</h2>
+                </div>
+                <div class="chapter-body">
+<div class="prose" data-reveal>
+    <p class="big">Treat the installer's on-site, mobile work as its own product.</p>
+    <p>We designed it as a smaller version of the desk view. The ladder and the desk ask for different interfaces.</p>
+    <ul class="dots">
+        <li><strong>A mobile-first commissioning flow</strong> for installers.</li>
+        <li><strong>From monitoring to prediction</strong>: the long-term vision was anticipating failures, deeper building-management integration and more sensors.</li>
+    </ul>
+</div>
+                </div>
+            </section>
+
+            <nav class="pager" aria-label="More case studies">
+                <a href="case-study-maya.html"><span>Previous</span><strong>Maya, L5 Trip Concierge</strong></a>
+                <a href="case-study-shell.html"><span>Next</span><strong>Shell Mobility</strong></a>
+            </nav>
+        </div>
+
+        <section id="contact" class="contact wrap">
+            <h2 data-reveal>Let's talk about your product.</h2>
+            <p data-reveal>I'm based in Porto and work remotely, hybrid or on site.</p>
+            <p class="contact-links" data-reveal>
+                <a class="mail" href="mailto:oliveira.anibal@gmail.com">oliveira.anibal@gmail.com</a>
+                <a class="link" href="https://www.linkedin.com/in/oliveiraanibal/" rel="noopener">LinkedIn</a>
+            </p>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="wrap bar">
+            <span>© 2026 Aníbal Oliveira</span>
+            <span class="footer-links">
+                <a href="about.html">About</a>
+                <a href="https://www.linkedin.com/in/oliveiraanibal/" rel="noopener">LinkedIn</a>
+                <a href="mailto:oliveira.anibal@gmail.com">Email</a>
+            </span>
+        </div>
+    </footer>
+
+    <script src="v4.js" defer></script>
 </body>
 </html>

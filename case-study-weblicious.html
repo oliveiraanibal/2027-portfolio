@@ -1,168 +1,272 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" data-theme="dark">
+
 <head>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-BQ8R2S5PRK"></script>
-<script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-BQ8R2S5PRK');
-</script>
-<script>try{var t=localStorage.getItem('theme');if(!t&&matchMedia('(prefers-color-scheme: dark)').matches)t='dark';if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>WebLicious | Aníbal Oliveira</title>
-<meta name="description" content="Founder of WebLicious, a small web studio that delivered websites and marketing for more than 50 clients in Portugal and the UK, from 2008 to 2018.">
-<meta name="author" content="Aníbal Oliveira">
-<link rel="canonical" href="https://oliveiraanibal.github.io/2027-portfolio/case-study-weblicious.html">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="Aníbal Oliveira">
-<meta property="og:title" content="WebLicious | Aníbal Oliveira">
-<meta property="og:description" content="Founder of WebLicious, a small web studio that delivered websites and marketing for more than 50 clients in Portugal and the UK, from 2008 to 2018.">
-<meta property="og:url" content="https://oliveiraanibal.github.io/2027-portfolio/case-study-weblicious.html">
-<meta property="og:image" content="https://oliveiraanibal.github.io/2027-portfolio/imgs/web-site.jpg">
-<meta name="twitter:card" content="summary_large_image">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=SUSE:wght@200..700&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,400..600;1,8..60,400&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="site.css">
-<link rel="icon" href="favicon.ico" sizes="32x32">
-<link rel="icon" type="image/svg+xml" href="favicon.svg">
-<link rel="icon" type="image/png" href="favicon.png">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex, nofollow">
+    <title>WebLicious · Case study · Aníbal Oliveira</title>
+    <meta name="description" content="WebLicious: ten years founding and running a web studio for more than 50 clients in Portugal and the UK.">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="WebLicious · Aníbal Oliveira">
+    <meta property="og:description" content="WebLicious: ten years founding and running a web studio for more than 50 clients in Portugal and the UK.">
+    <meta property="og:image" content="img/og.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="color-scheme" content="dark light">
 
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="alternate icon" href="favicon.ico">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="preload" href="fonts/fraunces.woff" as="font" type="font/woff" crossorigin>
+    <link rel="preload" href="fonts/hanken-grotesk.woff" as="font" type="font/woff" crossorigin>
+    <link rel="stylesheet" href="v4.css">
+
+    <!-- Runs before the page paints: marks that JavaScript works (so the
+         entrance animations may hide things first) and restores the saved theme. -->
+    <script>
+        (function () {
+            var root = document.documentElement;
+            root.classList.add('js');
+            try {
+                var saved = localStorage.getItem('v4-theme');
+                if (saved === 'light' || saved === 'dark') root.setAttribute('data-theme', saved);
+            } catch (e) { }
+        })();
+    </script>
 </head>
+
 <body>
-<a class="skip" href="#main">Skip to content</a>
-<header class="site-header">
-  <div class="in">
-    <a class="brand" href="index.html">Aníbal Oliveira</a>
-    <div class="tools">
-    <nav class="site-nav" aria-label="Main">
-      <a href="index.html#work" aria-current="page">Work</a>
-      <a href="about.html">About</a>
-      <a class="opt" href="mailto:oliveira.anibal@gmail.com">Email</a>
-    </nav>
-    <button class="theme-toggle" type="button" aria-label="Switch to dark theme" title="Switch theme"><svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg><svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
-    </div>
-  </div>
-</header>
-<div class="case">
-  <aside class="rail">
-    <nav aria-label="On this page">
-      <a class="back" href="index.html#work">All work</a>
-      <ol>
-        <li><a href="#business">The business</a></li>
-        <li><a href="#packs">Productised pricing</a></li>
-        <li><a href="#work">Selected work</a></li>
-        <li><a href="#exit">The exit</a></li>
-        <li><a href="#lessons">Lessons</a></li>
-      </ol>
-    </nav>
-  </aside>
-  <main id="main" class="case-main">
-<header class="case-hero">
-  <h1>WebLicious</h1>
-  <p class="lead">Running my own web studio for nearly ten years: selling, scoping, designing and building websites for more than 50 clients.</p>
-  <hr class="lumen">
-  <dl class="facts">
-    <div><dt>Company</dt><dd>WebLicious, my own studio</dd></div>
-    <div><dt>When</dt><dd>2008–2018</dd></div>
-    <div><dt>My role</dt><dd>Founder: strategy, design, front-end and marketing</dd></div>
-    <div><dt>Team</dt><dd>Me, with two contributors I recruited and mentored</dd></div>
-    <div><dt>Clients</dt><dd>Small businesses in Portugal and the UK</dd></div>
-  </dl>
-  <figure class="hero-media">
-    <div class="frame"><img src="imgs/web-site.jpg" alt="The WebLicious website, with three website packs at the top"></div>
-    <figcaption><b>The studio's own website.</b> Three packs at the top, services below: web design, web marketing and corporate design.</figcaption>
-  </figure>
-</header>
+    <a class="skip" href="#main">Skip to content</a>
 
-<section id="business" data-nav="The business">
-  <h2>The business</h2>
-  <p>In 2008 most small businesses in Portugal had no website, and the financial crisis pushed them to look for cheaper ways to find customers. I started WebLicious to give them a complete service from one person they could call: strategy, design, development, hosting, marketing and search optimisation, with newsletters, pay-per-click and print campaigns when they needed them.</p>
-  <p>Before WebLicious I spent four years as a web designer and front-end developer, in Porto and then in London, where I built accessible websites for NHS organisations. Back in Portugal, WebLicious kept doing NHS and other UK projects, working with UK design studios, and partnered with Sonae MC on its online presence (see <a href="case-study-continente.html">Continente Online</a>).</p>
-  <div class="contrib">
-    <div class="donut"><script type="application/json">[
-      {"percentage": 25, "legend": "Management", "color": "#f5b841"},
-      {"percentage": 25, "legend": "Design", "color": "#2348d6"},
-      {"percentage": 25, "legend": "Development", "color": "#8c6ad8"},
-      {"percentage": 25, "legend": "Marketing", "color": "#e4576e"}]</script></div>
-    <ul>
-      <li>I sold and scoped every project, from the value proposition to maintenance.</li>
-      <li>I designed and built websites for more than 50 clients, on content management systems such as WordPress and Joomla, with analytics.</li>
-      <li>I ran campaigns across social media, newsletters, pay-per-click and print.</li>
-      <li>I recruited and mentored two contributors.</li>
-    </ul>
-  </div>
-</section>
+    <header class="site-header">
+        <div class="wrap bar">
+            <a class="brand" href="index.html" aria-label="Aníbal Oliveira, home">Aníbal Oliveira</a>
+            <nav class="nav" aria-label="Main">
+                <a href="index.html#work">Work</a>
+                <a href="about.html">About</a>
+                <a href="#contact">Contact</a>
+            </nav>
+            <button class="theme-toggle" type="button" aria-label="Switch to light theme">
+                <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+                    <circle cx="12" cy="12" r="4" />
+                    <path d="M12 2.5v2.5M12 19v2.5M4.6 4.6l1.8 1.8M17.6 17.6l1.8 1.8M2.5 12H5M19 12h2.5M4.6 19.4l1.8-1.8M17.6 6.4l1.8-1.8" />
+                </svg>
+                <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M20 14.2A8 8 0 0 1 9.8 4a8 8 0 1 0 10.2 10.2z" />
+                </svg>
+            </button>
+        </div>
+    </header>
 
-<section id="packs" data-nav="Productised pricing">
-  <h2>Websites as products, not quotes</h2>
-  <article class="decision">
-    <h3>Three packs with a starting price</h3>
-    <p>Instead of quoting every project from scratch, I packaged the offer in three sizes. Each pack added one capability, from a small static site to one the client could edit, to a shop, and each showed its starting price, so a client knew what their budget bought before the first meeting.</p>
-    <div class="table-wrap">
-      <table>
-        <thead><tr><th>Pack</th><th>From</th><th>What it included</th></tr></thead>
-        <tbody>
-          <tr><th>250S</th><td class="num">€250</td><td>Custom design for the client's identity, up to 3 static pages, email signatures, domain</td></tr>
-          <tr><th>600M</th><td class="num">€600</td><td>Concept design, image gallery, news section, content management (Joomla), contact form</td></tr>
-          <tr><th>1000L</th><td class="num">€1,000</td><td>Online shop, product or service catalogue, content management, visitor statistics</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <p class="tradeoff"><b>Trade-off:</b> fixed packs leave money on the table for bigger clients. Anything beyond a pack was scoped and quoted on top, so the packs worked as a starting point, not a ceiling.</p>
-  </article>
-</section>
+    <main id="main">
+        <!-- Title -->
+        <section class="page-hero wrap">
+            <a class="back" href="index.html#work"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6" /></svg>All work</a>
+            <p class="eyebrow" data-reveal>Case study <span class="nb">· My own studio</span> <span class="nb">· 2008–2018</span></p>
+            <h1 class="headline" data-split>WebLicious: ten years of owning the <em>whole</em> product.</h1>
+            <p class="lede" data-reveal style="--d:5">My own web studio: selling, scoping, designing and building for more than 50 clients in Portugal and the UK.</p>
+        </section>
 
-<section id="work" data-nav="Selected work">
-  <h2>Selected work</h2>
-  <div class="gallery">
-    <div class="trio">
-      <figure><div class="shot"><img src="imgs/web-al.jpg" alt="Alexander and Law website home page" loading="lazy"></div>
-        <figcaption><b>Alexander &amp; Law, UK.</b> Corporate site for a property services company, with a private area for clients.</figcaption></figure>
-      <figure><div class="shot"><img src="imgs/web-sas.jpg" alt="Solar Advanced Systems website home page" loading="lazy"></div>
-        <figcaption><b>Solar Advanced Systems, UK.</b> Solar energy for homes and businesses, with product details and an enquiry form.</figcaption></figure>
-      <figure><div class="shot"><img src="imgs/web-modo.jpg" alt="Modoframe building system website" loading="lazy"></div>
-        <figcaption><b>Modoframe.</b> A modular building system explained in plain language, built to generate leads.</figcaption></figure>
-      <figure><div class="shot"><img src="imgs/web-totuus.jpg" alt="Totuus Consulting website home page" loading="lazy"></div>
-        <figcaption><b>Totuus Consulting.</b> A legal market consultancy's services and expertise, written for non-lawyers.</figcaption></figure>
-      <figure><div class="shot"><img src="imgs/web-imperial.jpg" alt="Imperial College Healthcare NHS Trust home page design with placeholder text" loading="lazy"></div>
-        <figcaption><b>Imperial College Healthcare NHS Trust.</b> Home page design for services, education and research; shown with placeholder text.</figcaption></figure>
-      <figure><div class="shot"><img src="imgs/web-anyshire.jpg" alt="NHS template shown for a sample authority called Anyshire" loading="lazy"></div>
-        <figcaption><b>NHS template.</b> A reusable template for NHS organisations, built to WCAG 1.0, the accessibility standard at the time.</figcaption></figure>
-    </div>
-  </div>
-</section>
+        <div class="wrap">
+            <!-- The 60-second summary -->
+            <dl class="summary" data-reveal style="--d:7">
+                <div>
+                    <dt>Role</dt>
+                    <dd>Founder: strategy, design, front-end and marketing</dd>
+                </div>
+                <div>
+                    <dt>Team</dt>
+                    <dd>Me, and two contributors I recruited and mentored</dd>
+                </div>
+                <div>
+                    <dt>Duration</dt>
+                    <dd>2008–2018</dd>
+                </div>
+                <div class="is-outcome">
+                    <dt>Outcome</dt>
+                    <dd>50+ clients over ten years. The regular accounts were sold to a trusted competitor, so every client kept their service.</dd>
+                </div>
+            </dl>
 
-<section id="exit" data-nav="The exit">
-  <h2>The exit</h2>
-  <p>After nearly ten years I wanted to work in larger, multidisciplinary teams, with a deeper focus on user experience, product design and mobile apps. I sold my regular accounts to a competitor I trusted, so every client kept their service, and in 2019 joined Hitachi Vantara as a UX designer.</p>
-</section>
+            <figure class="shot shot-wide" data-reveal>
+                                <span class="frame">
+                                    <picture>
+                                        <source srcset="img/weblicious-site.webp" type="image/webp">
+                                        <img src="img/weblicious-site.jpg" width="802" height="462" alt="The WebLicious website with three fixed packs at the top" loading="lazy" decoding="async">
+                                    </picture>
+                                </span>
+                                <figcaption>The studio's website: three fixed packs at the top, services below.</figcaption>
+                            </figure>
 
-<section id="lessons" data-nav="Lessons">
-  <h2>What it taught me</h2>
-  <div class="lessons">
-    <div><h3>Scope is a product decision</h3>
-      <p>Packaging the offer forced me to decide what was in and out before the first meeting. I still do that with every backlog.</p></div>
-    <div><h3>Every sale starts with discovery</h3>
-      <p>"I need a website" was never the real need. Finding the business problem behind it is the same skill I use in product discovery today.</p></div>
-  </div>
-</section>
-
-    <div class="case-end">
-      <p class="hire">Want the longer version of this story? Email me at <a href="mailto:oliveira.anibal@gmail.com">oliveira.anibal@gmail.com</a> or find me on <a href="https://www.linkedin.com/in/oliveiraanibal/" rel="noopener">LinkedIn</a>.</p>
-      <nav class="pager" aria-label="More case studies"><a class="prev" href="case-study-continente.html"><span>Previous</span><strong>Continente Online</strong></a><a class="next" href="case-study-feedzai.html"><span>Next</span><strong>Feedzai RiskOps Studio</strong></a></nav>
-    </div>
-  </main>
+            <section class="chapter">
+                <div class="chapter-label" data-reveal>
+                    <span class="no">01</span>
+                    <h2>Context</h2>
+                </div>
+                <div class="chapter-body">
+<div class="prose" data-reveal>
+    <p class="big">In 2008 most small businesses in Portugal had no website, and the financial crisis pushed them to look for cheaper ways to find customers.</p>
+    <p>I had spent almost two years in London building accessible websites for NHS organisations. Back in Porto, I started a studio and kept doing UK work from Portugal.</p>
 </div>
-<footer class="site-footer">
-  <div class="in">
-    <span>Aníbal Oliveira, Senior UX Product Designer. Porto, working remotely.</span>
-    <span class="links"><a href="mailto:oliveira.anibal@gmail.com">oliveira.anibal@gmail.com</a><a href="https://www.linkedin.com/in/oliveiraanibal/" rel="noopener">LinkedIn</a></span>
-  </div>
-</footer>
-<script src="site.js" defer></script>
+                </div>
+            </section>
+
+            <section class="chapter">
+                <div class="chapter-label" data-reveal>
+                    <span class="no">02</span>
+                    <h2>Problem</h2>
+                </div>
+                <div class="chapter-body">
+<div class="prose" data-reveal>
+    <p class="big">Small businesses needed to be online and didn't know what to ask for, what it should cost, or who to trust with it.</p>
+    <p>The crisis made the timing right: businesses were looking for cheaper, recession-proof ways to reach customers, and most of them were starting from nothing online.</p>
+</div>
+                </div>
+            </section>
+
+            <section class="chapter">
+                <div class="chapter-label" data-reveal>
+                    <span class="no">03</span>
+                    <h2>My role and what I owned</h2>
+                </div>
+                <div class="chapter-body">
+<div class="prose" data-reveal>
+    <p class="big">Everything a product owner owns, as the founder.</p>
+    <ul class="dots">
+        <li><strong>The offer</strong>: value proposition, packs and pricing.</li>
+        <li><strong>Sales and scoping</strong> of every project.</li>
+        <li><strong>Design and build</strong>: more than 50 websites with content management and analytics.</li>
+        <li><strong>Marketing</strong>: campaigns across social media, newsletters, pay-per-click and print.</li>
+        <li><strong>People</strong>: I recruited and mentored two contributors.</li>
+    </ul>
+</div>
+                </div>
+            </section>
+
+            <section class="chapter">
+                <div class="chapter-label" data-reveal>
+                    <span class="no">04</span>
+                    <h2>Key decisions and trade-offs</h2>
+                </div>
+                <div class="chapter-body">
+<article class="decision">
+    <h3 data-reveal><span>Decision 1</span>Three packs with a starting price</h3>
+    <p data-reveal>Each pack added one capability: a small static site from €250, a site the client could edit from €600, and an online shop from €1,000. A client knew what their budget bought before the first meeting.</p>
+    <div class="cols">
+        <div data-reveal><p class="label">Chosen</p><p>Fixed packs as a starting point, with anything beyond a pack scoped on top.</p></div>
+        <div data-reveal style="--d:1"><p class="label">Rejected</p><p>A custom quote for every enquiry, with no price until after a meeting.</p></div>
+        <div data-reveal style="--d:2"><p class="label">Trade-off</p><p>Fixed packs leave money on the table with bigger clients.</p></div>
+    </div>
+</article>
+<article class="decision">
+    <h3 data-reveal><span>Decision 2</span>Start every sale with discovery</h3>
+    <p data-reveal>Before proposing a pack, I asked what the business was trying to change. The answer shaped the site more than the feature list did.</p>
+    <div class="cols is-2">
+        <div data-reveal><p class="label">Chosen</p><p>A discovery conversation before any proposal.</p></div>
+        <div data-reveal style="--d:1"><p class="label">Why</p><p>"I need a website" was never the real need.</p></div>
+    </div>
+<div class="pair"><figure class="shot" data-reveal>
+                                <span class="frame">
+                                    <picture>
+                                        <source srcset="img/weblicious-al.webp" type="image/webp">
+                                        <img src="img/weblicious-al.jpg" width="384" height="240" alt="Website for Alexander and Law property services" loading="lazy" decoding="async">
+                                    </picture>
+                                </span>
+                                <figcaption>Alexander & Law, UK: property services, with a client area.</figcaption>
+                            </figure>
+<figure class="shot" data-reveal style="--d:1">
+                                <span class="frame">
+                                    <picture>
+                                        <source srcset="img/weblicious-nhs.webp" type="image/webp">
+                                        <img src="img/weblicious-nhs.jpg" width="384" height="240" alt="Home page design for Imperial College Healthcare NHS Trust" loading="lazy" decoding="async">
+                                    </picture>
+                                </span>
+                                <figcaption>Imperial College Healthcare NHS Trust: home page design.</figcaption>
+                            </figure></div>
+</article>
+<article class="decision">
+    <h3 data-reveal><span>Decision 3</span>Sell the accounts instead of closing</h3>
+    <p data-reveal>After nearly ten years I wanted to work in larger, multidisciplinary teams, with a deeper focus on UX and product.</p>
+    <div class="cols is-2">
+        <div data-reveal><p class="label">Chosen</p><p>Sell the regular accounts to a trusted competitor, so every client kept their service.</p></div>
+        <div data-reveal style="--d:1"><p class="label">Rejected</p><p>Winding the studio down and leaving clients to find someone new.</p></div>
+    </div>
+<div class="pair"><figure class="shot" data-reveal>
+                                <span class="frame">
+                                    <picture>
+                                        <source srcset="img/weblicious-sas.webp" type="image/webp">
+                                        <img src="img/weblicious-sas.jpg" width="384" height="240" alt="Website for Solar Advanced Systems" loading="lazy" decoding="async">
+                                    </picture>
+                                </span>
+                                <figcaption>Solar Advanced Systems, UK: products and enquiries.</figcaption>
+                            </figure>
+<figure class="shot" data-reveal style="--d:1">
+                                <span class="frame">
+                                    <picture>
+                                        <source srcset="img/weblicious-modo.webp" type="image/webp">
+                                        <img src="img/weblicious-modo.jpg" width="384" height="240" alt="Website for the Modoframe building system" loading="lazy" decoding="async">
+                                    </picture>
+                                </span>
+                                <figcaption>Modoframe: a building system, explained plainly.</figcaption>
+                            </figure></div>
+</article>
+                </div>
+            </section>
+
+            <section class="chapter">
+                <div class="chapter-label" data-reveal>
+                    <span class="no">05</span>
+                    <h2>Outcome</h2>
+                </div>
+                <div class="chapter-body">
+<ul class="cols">
+    <li data-reveal><span class="num">50+</span><p>clients in Portugal and the UK, including NHS organisations.</p></li>
+    <li data-reveal style="--d:1"><span class="num">10 years</span><p>of running the studio, from the first sale to the exit.</p></li>
+    <li data-reveal style="--d:2"><span class="num">2</span><p>contributors recruited and mentored.</p></li>
+</ul>
+                </div>
+            </section>
+
+            <section class="chapter">
+                <div class="chapter-label" data-reveal>
+                    <span class="no">06</span>
+                    <h2>What I took from it</h2>
+                </div>
+                <div class="chapter-body">
+<div class="prose" data-reveal>
+    <p class="big">Scope is a product decision, and every sale starts with discovery.</p>
+    <p>Both habits run through my product work today. So does the founder's reflex of asking what something costs, who pays for it and what happens after launch.</p>
+</div>
+                </div>
+            </section>
+
+            <nav class="pager" aria-label="More case studies">
+                <a href="case-study-continente.html"><span>Previous</span><strong>Continente Online</strong></a>
+                <a href="case-study-bowker.html"><span>Next</span><strong>Bowker Transport</strong></a>
+            </nav>
+        </div>
+
+        <section id="contact" class="contact wrap">
+            <h2 data-reveal>Let's talk about your product.</h2>
+            <p data-reveal>I'm based in Porto and work remotely, hybrid or on site.</p>
+            <p class="contact-links" data-reveal>
+                <a class="mail" href="mailto:oliveira.anibal@gmail.com">oliveira.anibal@gmail.com</a>
+                <a class="link" href="https://www.linkedin.com/in/oliveiraanibal/" rel="noopener">LinkedIn</a>
+            </p>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="wrap bar">
+            <span>© 2026 Aníbal Oliveira</span>
+            <span class="footer-links">
+                <a href="about.html">About</a>
+                <a href="https://www.linkedin.com/in/oliveiraanibal/" rel="noopener">LinkedIn</a>
+                <a href="mailto:oliveira.anibal@gmail.com">Email</a>
+            </span>
+        </div>
+    </footer>
+
+    <script src="v4.js" defer></script>
 </body>
 </html>
